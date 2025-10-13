@@ -1,7 +1,7 @@
 # budget_tracker_v2.py
 # Author: Daniel Marcinkowski
 # ID: 125701129
-# Date: 2025-10-11
+# Date: 2025-10-13
 # Description: "A simple CLI-based budget tracker."
 
 # Prompting user for input — their weekly income and expenses in various categories.
