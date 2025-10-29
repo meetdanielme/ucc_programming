@@ -10,4 +10,4 @@ rate = float(input("Enter rate per hour: "))
 
 pay = computepay(hours, rate)
 
-print("Gross salary:", pay)
+print(f"Gross salary: {pay}")
