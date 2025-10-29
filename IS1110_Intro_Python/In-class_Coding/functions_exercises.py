@@ -299,16 +299,18 @@ calculate_total(10, 3, 5)
 # Variables created inside a function are local to that function
 # They only exist within the function and cease to exist when function ends
 
-# TODO: Define a function called calculate_tax with parameters amount and tax_rate
+# Define a function called calculate_tax with parameters amount and tax_rate
 # Create a local variable tax = amount * tax_rate
 # Return tax
+def calculate_tax(amount, tax_rate):
+    tax = amount * tax_rate
+    return tax
 
+# Call calculate_tax with 100 and 0.20, assign to result
+result = calculate_tax(100, 0.20)
 
-# TODO: Call calculate_tax with 100 and 0.20, assign to result
-
-
-# TODO: Print 'Tax: €' followed by result
-
+# Print 'Tax: €' followed by result
+print('Tax: €' + result)
 
 # Try uncommenting this line to see the error:
 # print(tax)  # This causes an error - tax doesn't exist outside the function
