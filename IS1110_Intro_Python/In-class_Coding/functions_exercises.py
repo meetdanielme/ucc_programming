@@ -146,7 +146,7 @@ print(get_grade(75))
 def calculate_rectangle_properties(length, width):
     area = length * width
     perimeter = 2 * (length + width)
-    return area, perimeter
+    return area, perimeter # tuple - two values separated by comma
 
 
 # Method 1: Assign both values to a single variable (gets a tuple)
@@ -175,12 +175,12 @@ print(f"Perimeter: {perimeter}")
 # If attendance >= 80, set status = 'Good standing', otherwise status = 'Warning'
 # Return name, grade, and status (three values)
 def get_student_info(name, score, attendance):
-    get_grade(score)
+    grade = get_grade(score)
     if attendance >= 80:
         status = "Good standing"
     else:
         status = "Warning"
-    return name, score, status
+    return name, grade, status
 
 # Call get_student_info('Alice', 85, 90) and unpack into three variables:
 # student_name, student_grade, student_status = ...
@@ -266,7 +266,6 @@ describe_pet(pet_name="Whiskers", animal_type="cat")
 def greet_with_title(name, title="Mr"):
     print(f"Hello {title} {name}")
 
-
 # Call greet_with_title with just 'Smith' (uses default title)
 greet_with_title("Smith")
 
@@ -310,7 +309,7 @@ def calculate_tax(amount, tax_rate):
 result = calculate_tax(100, 0.20)
 
 # Print 'Tax: €' followed by result
-print('Tax: €' + result)
+print('Tax: €', result)
 
 # Try uncommenting this line to see the error:
 # print(tax)  # This causes an error - tax doesn't exist outside the function
