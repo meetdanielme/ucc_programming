@@ -214,7 +214,7 @@ word = "Python"
 count = 0
 for i in range(len(word)):
     count += 1
-    print(count, word[i])
+    print(count, word[i]) # word[i] gives the letter at index i
 print(f"Number of letters: {count}")
 
 # ============================================================
