@@ -1,8 +1,8 @@
-# budget_tracker_v4.py
+# budget_tracker_v5.py
 # Author: Daniel Marcinkowski
 # ID: 125701129
-# Date: 2025-10-30
-# Description: "Multi-Week Budget Tracker (Version 4.0)"
+# Date: 2025-11-14
+# Description: "Improved Budget Categories (Version 5.0)"
 # ---------------------------------------------------------------------
 # REFERENCES & ACKNOWLEDGEMENT OF AI USE
 # ---------------------------------------------------------------------
@@ -63,10 +63,14 @@ def get_user_input():
     """gets all budget input from user with validation"""
     income = get_positive_float("What's your weekly income? (in €)\n")
     rent = get_positive_float("How much you spend on rent weekly? (in €)\n")
+    rent_desc = input("Rent description (optional): ").strip().title()
     food = get_positive_float("How much you spend on food weekly? (in €)\n")
+    food_desc = input("Food description (optional): ").strip().title()
     transport = get_positive_float("How much you spend on transport weekly? (in €)\n")
+    transport_desc = input("Transport description (optional): ").strip().title()
     entertainment = get_positive_float("How much you spend on entertainment weekly? (in €)\n")
-    return income, rent, food, transport, entertainment
+    entertainment_desc = input("Entertainment description (optional): ").strip().title()
+    return income, rent, food, transport, entertainment, rent_desc, food_desc, transport_desc, entertainment_desc
 
 def calculate_budget(income, rent, food, transport, entertainment):
     """calculates total expenses and money remaining"""
@@ -89,17 +93,21 @@ def analyse_status(money_left):
     else:
         print("You should probably save a bit more next week.")
 
-def show_results(income, rent, food, transport, entertainment, total_expenses, money_left):
+def show_results(income, rent, food, transport, entertainment, total_expenses, money_left,
+                 rent_desc="", food_desc="", transport_desc="", entertainment_desc="", week_number=None):
     """displays formatted budget report"""
-    print("\n=== OVERVIEW ===\n")
+    if week_number is not None:
+        print(f"\n=== Week {week_number} Budget Details ===\n")
+    else:
+        print("\n=== OVERVIEW ===\n")
     print("Weekly Income:", euro(income))
     print("Total Expenses:", euro(total_expenses))
     print("Money Left:", euro(money_left))
     print("\n=== SPEND ===\n")
-    print("Rent:", euro(rent))
-    print("Food:", euro(food))
-    print("Transport:", euro(transport))
-    print("Entertainment:", euro(entertainment))
+    print(f"Rent: {euro(rent)} - {rent_desc}")
+    print(f"Groceries: {euro(food)} - {food_desc}")
+    print(f"Transport: {euro(transport)} - {transport_desc}")
+    print(f"Entertainment: {euro(entertainment)} - {entertainment_desc}")
     print("\n=== TIPS ===\n")
     analyse_status(money_left)
 
@@ -115,11 +123,14 @@ def get_menu_choice():
             return int(choice)
         print("Please enter 1, 2, or 3.")
 
-def add_week_flow():
+def add_week_flow(week_number):
     """One interaction to add a week. Returns (this_income, this_expenses)."""
-    income, rent, food, transport, entertainment = get_user_input()
+    income, rent, food, transport, entertainment, rent_desc, food_desc, transport_desc, entertainment_desc = get_user_input()
     total_expenses, money_left = calculate_budget(income, rent, food, transport, entertainment)
-    show_results(income, rent, food, transport, entertainment, total_expenses, money_left)
+    show_results(income, rent, food, transport, entertainment,
+                 total_expenses, money_left,
+                 rent_desc, food_desc, transport_desc, entertainment_desc,
+                 week_number)
     return income, total_expenses
 
 def compute_averages(week_count, total_income, total_expenses):
@@ -138,8 +149,9 @@ def main():
 
         if choice == 1:
             # Add This Week’s Budget
-            this_income, this_expenses = add_week_flow()
             week_count += 1
+            this_income, this_expenses = add_week_flow(week_count)
+
             total_income += this_income
             total_expenses += this_expenses
 
@@ -170,7 +182,6 @@ def main():
         elif choice == 3:
             print("Goodbye!")
             break
-
 
 if __name__ == "__main__":
     main()
