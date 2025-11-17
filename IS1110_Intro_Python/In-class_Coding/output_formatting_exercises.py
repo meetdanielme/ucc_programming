@@ -11,19 +11,19 @@ print('Hello', 'World')
 print('Name:', 'Alice', 'Age:', 25)
 
 # sep parameter changes the separator between arguments
-# TODO: Print 'Cork', 'Ireland', 'Europe' separated by ' | '
+# Print 'Cork', 'Ireland', 'Europe' separated by ' | '
+print("Cork", "Ireland", "Europe", sep=" | ")
 
-
-# TODO: Print '2025', '11', '12' separated by '-'
-
+# Print '2025', '11', '12' separated by '-'
+print("2025", "11", "12", sep="-")
 
 # end parameter changes what's printed at the end (default is newline)
 print('Loading', end='...')
 print('Done')
 
 # Combining multiple print features
-# TODO: Print 'Item', 'Quantity', 'Price' separated by ' | ' with double newline at end
-
+# Print 'Item', 'Quantity', 'Price' separated by ' | ' with double newline at end
+print("Item", "Quantity", "Price", sep=" | ", end="\n\n")
 
 
 # ============================================================
@@ -34,30 +34,30 @@ print('Done')
 print('First line\nSecond line\nThird line')
 
 # \t creates a horizontal tab
-# TODO: Print 'Name:', then a tab, then 'Alice'
+# Print 'Name:', then a tab, then 'Alice'
+print("Name:\tAlice")
 
+# Print 'Age:', then a tab, then 25
+print("Age:\t25")
 
-# TODO: Print 'Age:', then a tab, then 25
-
-
-# TODO: Print 'City:', then a tab, then 'Cork'
-
+# Print 'City:', then a tab, then 'Cork'
+print("City:\tCork")
 
 # \\ prints a backslash character
-# TODO: Print 'File path: C:\Users\Documents\file.txt' using \\
-
+# Print 'File path: C:\Users\Documents\file.txt' using \\
+print("File path: C:\\Users\\Documents\\file.txt")
 
 # \' prints a single quote inside a single-quoted string
-# TODO: Print "It's a lovely day" using \'
-
+# Print "It's a lovely day" using \'
+print('It\'s a lovely day')
 
 # \" prints a double quote inside a double-quoted string
-# TODO: Print 'She said "Hello" to me' using \"
-
+# Print 'She said "Hello" to me' using \"
+print("She said \"Hello\" to me")
 
 # Combining escape sequences
-# TODO: Print 'Line 1', newline, tab, 'Indented line 2', newline, 2 tabs, 'Double indented line 3'
-
+# Print 'Line 1', newline, tab, 'Indented line 2', newline, 2 tabs, 'Double indented line 3'
+print('Line 1\n\tIndented line 2\n\t\tDouble indented line 3')
 
 
 # ============================================================
@@ -65,40 +65,40 @@ print('First line\nSecond line\nThird line')
 # ============================================================
 
 # ljust(n) left-justifies a string in n characters
-# TODO: Print 'Left' left-justified in 10 characters
+# Print 'Left' left-justified in 10 characters
+print('Left'.ljust(10))
 
-
-# TODO: Print 'Text' left-justified in 15 characters
-
+# Print 'Text' left-justified in 15 characters
+print('Text'.ljust(15))
 
 # rjust(n) right-justifies a string in n characters
-# TODO: Print 'Right' right-justified in 10 characters
+# Print 'Right' right-justified in 10 characters
+print('Right'.rjust(10))
 
-
-# TODO: Print 'Text' right-justified in 15 characters
-
+# Print 'Text' right-justified in 15 characters
+print('Text'.rjust(15))
 
 # center(n) centres a string in n characters
-# TODO: Print 'Centre' centred in 10 characters
+# Print 'Centre' centred in 10 characters
+print('Centre'.center(10))
 
-
-# TODO: Print 'Text' centred in 15 characters
-
+# Print 'Text' centred in 15 characters
+print('Text'.center(15))
 
 # Practical example: creating a simple table using string methods
 # Ruler to visualise column positions
 print('0123456789012345678901234567')
-# TODO: Print 'Rank' left-justified(5), 'Player' left-justified(20), 'HR' right-justified(3), no separator
+# Print 'Rank' left-justified(5), 'Player' left-justified(20), 'HR' right-justified(3), no separator
+print('Rank'.ljust(5) + 'Player'.ljust(20) + 'HR'.rjust(3))
 
+# Print '1' centred(5), 'Barry Bonds' left-justified(20), '762' right-justified(3), no separator
+print('1'.center(5) + 'Barry Bonds'.ljust(20) + '762'.rjust(3))
 
-# TODO: Print '1' centred(5), 'Barry Bonds' left-justified(20), '762' right-justified(3), no separator
+# Print '2' centred(5), 'Hank Aaron' left-justified(20), '755' right-justified(3), no separator
+print('2'.center(5) + 'Hank Aaron'.ljust(20) + '755'.rjust(3))
 
-
-# TODO: Print '2' centred(5), 'Hank Aaron' left-justified(20), '755' right-justified(3), no separator
-
-
-# TODO: Print '3' centred(5), 'Babe Ruth' left-justified(20), '714' right-justified(3), no separator
-
+# Print '3' centred(5), 'Babe Ruth' left-justified(20), '714' right-justified(3), no separator
+print('3'.center(5) + 'Babe Ruth'.ljust(20) + '714'.rjust(3))
 
 
 # ============================================================
@@ -110,29 +110,29 @@ print('0123456789012345678901234567')
 print('Hello, {}!'.format('Alice'))
 print('I am {} years old'.format(25))
 
-# TODO: Print 'Price: €19.99' using format()
-
+# Print 'Price: €19.99' using format()
+print('Price: €{}'.format(19.99))
 
 # Multiple placeholders
-# TODO: Print '5 + 3 = 8' using format() with three placeholders
+# Print '5 + 3 = 8' using format() with three placeholders
+print('{} + {} = {}'.format(5, 3, 8))
 
-
-# TODO: Print 'Name: Bob, Age: 30, City: Dublin' using format()
-
+# Print 'Name: Bob, Age: 30, City: Dublin' using format()
+print('Name: {}, Age: {}, City: {}'.format('Bob', 30, 'Dublin'))
 
 # Position indices allow reordering or reuse
-# TODO: Print 'Hello World' using {0} and {1}
+# Print 'Hello World' using {0} and {1}
+print('{0} {1}'.format('Hello', 'World'))
 
+# Print 'World Hello' using {1} and {0}
+print('{1} {0}'.format('Hello', 'World'))
 
-# TODO: Print 'World Hello' using {1} and {0}
-
-
-# TODO: Print 'Echo Echo Echo' using {0} three times
-
+# Print 'Echo Echo Echo' using {0} three times
+print('{0} {0} {0}'.format('Echo'))
 
 # Mixing text and format placeholders
-# TODO: Print 'The capital of Ireland is Dublin' using format()
-
+# Print 'The capital of Ireland is Dublin' using format()
+print('The capital of Ireland is {}'.format('Dublin'))
 
 
 # ============================================================
@@ -145,27 +145,27 @@ name = 'Alice'
 age = 25
 print(f'Hello, {name}!')
 
-# TODO: Print 'Alice is 25 years old' using f-string
-
+# Print 'Alice is 25 years old' using f-string
+print(f'{name} is {age} years old')
 
 # f-strings can include expressions inside {}
-# TODO: Print '5 + 3 = 8' using f-string with expression
+# Print '5 + 3 = 8' using f-string with expression
+print(f'5 + 3 = {5 + 3}')
 
-
-# TODO: Print '25 + 10 = 35' using f-string with age variable and expression
-
+# Print '25 + 10 = 35' using f-string with age variable and expression
+print(f'{age} + 10 = {age + 10}')
 
 # Multiple variables in f-strings
 city = 'Cork'
 country = 'Ireland'
-# TODO: Print 'Alice lives in Cork, Ireland' using f-string
-
+# Print 'Alice lives in Cork, Ireland' using f-string
+print(f'{name} lives in {city}, {country}')
 
 # Comparison: format() vs f-string for basic use
 # Using format():
 print('Name: {}, Age: {}'.format(name, age))
-# TODO: Print the same using f-string
-
+# Print the same using f-string
+print(f'Name: {name}, Age: {age}')
 
 
 
@@ -195,20 +195,20 @@ print('Name: {}, Age: {}'.format(name, age))
 # ^ - centre
 
 # Examples showing the structure:
-# TODO: Print 'Hello' using {:s} format (string type)
+# Print 'Hello' using {:s} format (string type)
+print('{:s}'.format('Hello'))
 
+# Print 42 using {:d} format (decimal integer type)
+print('{:d}'.format(42))
 
-# TODO: Print 42 using {:d} format (decimal integer type)
+# Print 3.14159 using {:f} format (floating-point type)
+print('{:f}'.format(3.14159))
 
+# Print 'Hello' in a width of 10 spaces using {:10s}
+print("{:10s}".format('Hello'))
 
-# TODO: Print 3.14159 using {:f} format (floating-point type)
-
-
-# TODO: Print 'Hello' in a width of 10 spaces using {:10s}
-
-
-# TODO: Print 3.14159 with width 10, 2 decimal places using {:10.2f}
-
+# Print 3.14159 with width 10, 2 decimal places using {:10.2f}
+print("{:10.2f}".format(3.14159))
 
 
 
@@ -222,37 +222,37 @@ print('{:10}'.format('Left'))
 print('{:10}'.format(123))
 
 # < forces left alignment
-# TODO: Print 'Left' left-aligned in 10 spaces using format()
+# Print 'Left' left-aligned in 10 spaces using format()
+print('{:<10}'.format('Left'))
 
-
-# TODO: Print 123 left-aligned in 10 spaces using format()
-
+# Print 123 left-aligned in 10 spaces using format()
+print('{:<10}'.format(123))
 
 # > forces right alignment
-# TODO: Print 'Right' right-aligned in 10 spaces using format()
+# Print 'Right' right-aligned in 10 spaces using format()
+print('{:>10}'.format('Right'))
 
-
-# TODO: Print 123 right-aligned in 10 spaces using format()
-
+# Print 123 right-aligned in 10 spaces using format()
+print('{:>10}'.format(123))
 
 # ^ centres the output
-# TODO: Print 'Centre' centred in 10 spaces using format()
+# Print 'Centre' centred in 10 spaces using format()
+print('{:^10}'.format('Centre'))
 
-
-# TODO: Print 123 centred in 10 spaces using format()
-
+# Print 123 centred in 10 spaces using format()
+print('{:^10}'.format('123'))
 
 # Practical example: creating aligned columns with format()
 # Ruler to visualise column positions
 print('0123456789012345678901234567')
-# TODO: Print 'Product' left-aligned in 15 spaces, 'Price' right-aligned in 10 spaces
+# Print 'Product' left-aligned in 15 spaces, 'Price' right-aligned in 10 spaces
+print('{:<15}{:>10}'.format('Product', 'Price'))
 
+# Print 'Coffee' left-aligned in 15 spaces, '€3.50' right-aligned in 10 spaces
+print('{:<15}{:>10}'.format('Coffee', '€3.50'))
 
-# TODO: Print 'Coffee' left-aligned in 15 spaces, '€3.50' right-aligned in 10 spaces
-
-
-# TODO: Print 'Tea' left-aligned in 15 spaces, '€2.80' right-aligned in 10 spaces
-
+# Print 'Tea' left-aligned in 15 spaces, '€2.80' right-aligned in 10 spaces
+print('{:<15}{:>10}'.format('Tea', '€2.80'))
 
 
 # ============================================================
@@ -260,25 +260,25 @@ print('0123456789012345678901234567')
 # ============================================================
 
 # f-strings use the same format specifiers after a colon
-# TODO: Print 'Left' left-aligned in 10 spaces using f-string
+# Print 'Left' left-aligned in 10 spaces using f-string
+print(f'{"Left":<10}')
 
-
-# TODO: Print 123 left-aligned in 10 spaces using f-string
-
+# Print 123 left-aligned in 10 spaces using f-string
+print(f'{"Right":<10}')
 
 # Right alignment in f-strings
-# TODO: Print 'Right' right-aligned in 10 spaces using f-string
+# Print 'Right' right-aligned in 10 spaces using f-string
+print(f'{"Right":>10}')
 
-
-# TODO: Print 123 right-aligned in 10 spaces using f-string
-
+# Print 123 right-aligned in 10 spaces using f-string
+print(f'{"123":>10}')
 
 # Centre alignment in f-strings
-# TODO: Print 'Centre' centred in 10 spaces using f-string
+# Print 'Centre' centred in 10 spaces using f-string
+print(f'{"Centre":^10}')
 
-
-# TODO: Print 123 centred in 10 spaces using f-string
-
+# Print 123 centred in 10 spaces using f-string
+print(f'{"123":^10}')
 
 # Same table example using f-strings
 product1 = 'Coffee'
@@ -287,14 +287,14 @@ product2 = 'Tea'
 price2 = '€2.80'
 # Ruler to visualise column positions
 print('0123456789012345678901234567')
-# TODO: Print 'Product' left-aligned in 15, 'Price' right-aligned in 10 using f-string
+# Print 'Product' left-aligned in 15, 'Price' right-aligned in 10 using f-string
+print(f'{"Product":<15}{"Price":>10}')
 
+# Print product1 left-aligned in 15, price1 right-aligned in 10 using f-string
+print(f'{product1:<15}{price1:>10}')
 
-# TODO: Print product1 left-aligned in 15, price1 right-aligned in 10 using f-string
-
-
-# TODO: Print product2 left-aligned in 15, price2 right-aligned in 10 using f-string
-
+# Print product2 left-aligned in 15, price2 right-aligned in 10 using f-string
+print(f'{product2:<15}{price2:>10}')
 
 
 # ============================================================
@@ -303,71 +303,71 @@ print('0123456789012345678901234567')
 
 # .2f formats a float with 2 decimal places
 price = 19.9
-# TODO: Print 'Price: €19.90' using .2f format
-
+# Print 'Price: €19.90' using .2f format
+print('Price: €{:.2f}'.format(price))
 
 # Different precision values
 pi = 3.14159265359
-# TODO: Print 'Pi to 2 decimal places: 3.14' using .2f
+# Print 'Pi to 2 decimal places: 3.14' using .2f
+print('Pi to 2 decimal places: {:.2f}'.format(pi))
 
-
-# TODO: Print 'Pi to 4 decimal places: 3.1416' using .4f
-
+# Print 'Pi to 4 decimal places: 3.1416' using .4f
+print('Pi to 4 decimal places: {:.4f}'.format(pi))
 
 # d formats integers (decimal)
-# TODO: Print 'Quantity: 42' using :d format
-
+# Print 'Quantity: 42' using :d format
+print('Quantity: {:d}'.format(42))
 
 # s formats strings
-# TODO: Print 'Name: Alice' using :s format
-
+# Print 'Name: Alice' using :s format
+print('Name: {:s}'.format('Alice'))
 
 # Combining width and precision
-# TODO: Print 123.456 with width 10 and 2 decimal places
+# Print 123.456 with width 10 and 2 decimal places
+print('{:10.2f}'.format(123.456))
 
-
-# TODO: Print 9.9 with width 10 and 2 decimal places
-
+# Print 9.9 with width 10 and 2 decimal places
+print('{:10.2f}'.format(9.9))
 
 # Combining alignment, width, and precision
-# TODO: Print 123.456 left-aligned, width 10, 2 decimal places
+# Print 123.456 left-aligned, width 10, 2 decimal places
+print('{:<10.2f}'.format(123.456))
 
+# Print 123.456 right-aligned, width 10, 2 decimal places
+print('{:>10.2f}'.format(123.456))
 
-# TODO: Print 123.456 right-aligned, width 10, 2 decimal places
-
-
-# TODO: Print 123.456 centred, width 10, 2 decimal places
-
+# Print 123.456 centred, width 10, 2 decimal places
+print('{:^10.2f}'.format(123.456))
 
 # Thousands separator using comma
 large_number = 1234567
-# TODO: Print large_number with thousands separators
+# Print large_number with thousands separators
+print('{:,}'.format(large_number))
 
-
-# TODO: Print 12345.678 with thousands separators and 2 decimal places
-
+# Print 12345.678 with thousands separators and 2 decimal places
+print('{:,.2f}'.format(12345.678))
 
 # Combining thousands separator with width and alignment
-# TODO: Print 1234567 with thousands separators, width 15
+# Print 1234567 with thousands separators, width 15
+print('{:15,}'.format(1234567))
 
-
-# TODO: Print 12345.678 right-aligned, width 15, thousands separators, 2 decimals
-
+# Print 12345.678 right-aligned, width 15, thousands separators, 2 decimals
+print('{:>15,.2f}'.format(12345.678))
 
 # Percentage formatting
 decimal_value = 0.235
-# TODO: Print decimal_value as percentage with 2 decimal places
+# Print decimal_value as percentage with 2 decimal places
+print('{:.2%}'.format(decimal_value))
 
-
-# TODO: Print 0.5 as percentage with 1 decimal place
-
+# Print 0.5 as percentage with 1 decimal place
+print('{:.1%}'.format(0.5))
 
 # Combining percentage with width
-# TODO: Print 0.235 as percentage, width 10, 2 decimal places
+# Print 0.235 as percentage, width 10, 2 decimal places
+print('{:10.2%}'.format(0.235))
 
-
-# TODO: Print 0.5 as percentage, right-aligned, width 10, 1 decimal place
-
+# Print 0.5 as percentage, right-aligned, width 10, 1 decimal place
+print('{:>10.1%}'.format(0.5))
 
 
 # ============================================================
@@ -376,40 +376,40 @@ decimal_value = 0.235
 
 # f-strings with precision
 price = 19.99
-# TODO: Print 'Price: €19.99' using f-string with .2f
-
+# Print 'Price: €19.99' using f-string with .2f
+print(f'Price: €{price:.2f}')
 
 pi = 3.14159265359
-# TODO: Print 'Pi to 2 decimal places: 3.14' using f-string
+# Print 'Pi to 2 decimal places: 3.14' using f-string
+print(f'Pi to 2 decimal places: {pi:.2f}')
 
-
-# TODO: Print 'Pi to 4 decimal places: 3.1416' using f-string
-
+# Print 'Pi to 4 decimal places: 3.1416' using f-string
+print(f'Pi to 4 decimal places: {pi:.4f}')
 
 # f-strings with thousands separator
 large_number = 1234567
-# TODO: Print large_number with thousands separators using f-string
+# Print large_number with thousands separators using f-string
+print(f"{large_number:,}")
 
-
-# TODO: Print 12345.678 with thousands separators and 2 decimals using f-string
-
+# Print 12345.678 with thousands separators and 2 decimals using f-string
+print(f"{12345.678:,.2f}")
 
 # f-strings with percentage
 decimal_value = 0.235
-# TODO: Print decimal_value as percentage with 2 decimals using f-string
+# Print decimal_value as percentage with 2 decimals using f-string
+print(f"{decimal_value:.2%}")
 
-
-# TODO: Print 0.5 as percentage with 1 decimal using f-string
-
+# Print 0.5 as percentage with 1 decimal using f-string
+print(f"{0.5:.1%}")
 
 # f-strings combining alignment, width, precision, and special formatting
 value = 12345.678
-# TODO: Print value right-aligned, width 15, thousands separators, 2 decimals
-
+# Print value right-aligned, width 15, thousands separators, 2 decimals
+print(f"{value:>15,.2f}")
 
 percentage = 0.235
-# TODO: Print percentage right-aligned, width 10, as percentage with 2 decimals
-
+# Print percentage right-aligned, width 10, as percentage with 2 decimals
+print(f"{percentage:>10.2%}")
 
 
 # ============================================================
@@ -418,48 +418,48 @@ percentage = 0.235
 
 # Example 1: Product list with prices using format()
 print('\n=== Product List (using format()) ===')
-# TODO: Print headers 'Item' and 'Price' using format()
-
+# Print headers 'Item' and 'Price' using format()
+print('{:<15}{:>10}'.format('Item', 'Price'))
 
 print('-' * 30)
-# TODO: Print 'Laptop' and €899.99 using format()
+# Print 'Laptop' and €899.99 using format()
+print('{:<15}{:>10}'.format('Laptop', '€899.99'))
 
+# Print 'Mouse' and €15.50 using format()
+print('{:<15}{:>10}'.format('Mouse', '€15.50'))
 
-# TODO: Print 'Mouse' and €15.50 using format()
-
-
-# TODO: Print 'Keyboard' and €45.00 using format()
-
+# Print 'Keyboard' and €45.00 using format()
+print('{:<15}{:>10}'.format('Keyboard', '€45.00'))
 
 # Example 1: Same product list using f-strings
 print('\n=== Product List (using f-strings) ===')
-# TODO: Print headers 'Item' and 'Price' using f-string
-
+# Print headers 'Item' and 'Price' using f-string
+print('{:<15}{:>10}'.format('Item', 'Price'))
 
 print('-' * 30)
-# TODO: Print 'Laptop' and €899.99 using f-string
+# Print 'Laptop' and €899.99 using f-string
+print('{:<15}{:>10}'.format('Laptop', '€899.99'))
 
+# Print 'Mouse' and €15.50 using f-string
+print('{:<15}{:>10}'.format('Mouse', '€15.50'))
 
-# TODO: Print 'Mouse' and €15.50 using f-string
-
-
-# TODO: Print 'Keyboard' and €45.00 using f-string
-
+# Print 'Keyboard' and €45.00 using f-string
+print('{:<15}{:>10}'.format('Keyboard', '€45.00'))
 
 # Example 2: Student results table with format()
 print('\n=== Student Results ===')
-# TODO: Print headers 'Name', 'Mark', 'Grade' with proper alignment
-
+# Print headers 'Name', 'Mark', 'Grade' with proper alignment
+print('{:<10}{:>6}{:>10}'.format('Name', 'Mark', 'Grade'))
 
 print('-' * 35)
-# TODO: Print 'Alice', 85, 'First' with proper alignment
+# Print 'Alice', 85, 'First' with proper alignment
+print('{:<10}{:>6}{:>10}'.format('Alice', 85, 'First'))
 
+# Print 'Bob', 67, 'Second' with proper alignment
+print('{:<10}{:>6}{:>10}'.format('Bob', 67, 'Second'))
 
-# TODO: Print 'Bob', 67, 'Second' with proper alignment
-
-
-# TODO: Print 'Charlie', 52, 'Pass' with proper alignment
-
+# Print 'Charlie', 52, 'Pass' with proper alignment
+print('{:<10}{:>6}{:>10}'.format('Charlie', 52, 'Pass'))
 
 # Example 3: Financial report with f-strings and calculations
 income = 850.00
@@ -470,24 +470,24 @@ total = rent + groceries + utilities
 remaining = income - total
 
 print('\n=== Monthly Budget ===')
-# TODO: Print 'Income' and value using f-string with € and 2 decimals
+# Print 'Income' and value using f-string with € and 2 decimals
+print(f'Income: €{income:.2f}')
 
+# Print 'Rent' and value using f-string with € and 2 decimals
+print(f'Rent: €{rent:.2f}')
 
-# TODO: Print 'Rent' and value using f-string with € and 2 decimals
+# Print 'Groceries' and value using f-string with € and 2 decimals
+print(f'Groceries: €{groceries:.2f}')
 
-
-# TODO: Print 'Groceries' and value using f-string with € and 2 decimals
-
-
-# TODO: Print 'Utilities' and value using f-string with € and 2 decimals
-
+# Print 'Utilities' and value using f-string with € and 2 decimals
+print(f'Utilities: €{utilities:.2f}')
 
 print('-' * 28)
-# TODO: Print 'Total Expenses' and total using f-string with € and 2 decimals
+# Print 'Total Expenses' and total using f-string with € and 2 decimals
+print(f'Total Expenses: €{total:.2f}')
 
-
-# TODO: Print 'Remaining' and remaining using f-string with € and 2 decimals
-
+# Print 'Remaining' and remaining using f-string with € and 2 decimals
+print(f'Remaining: €{remaining:.2f}')
 
 # Example 4: Sales report with percentages and thousands separator
 product = 'Premium Laptop'
@@ -498,23 +498,23 @@ target_revenue = 2000000
 percentage_of_target = revenue / target_revenue
 
 print('\n=== Sales Report ===')
-# TODO: Print 'Product:' and product name using f-string
+# Print 'Product:' and product name using f-string
+print(f'Product: {product}')
 
+# Print 'Units Sold:' and units with thousands separator
+print(f'Units Sold: {units_sold:,}')
 
-# TODO: Print 'Units Sold:' and units with thousands separator
+# Print 'Unit Price:' and price with € and 2 decimals
+print(f'Unit Price: {price:.2f}')
 
+# Print 'Total Revenue:' with €, thousands separator, and 2 decimals
+print(f'Total Revenue: €{revenue:,.2f}')
 
-# TODO: Print 'Unit Price:' and price with € and 2 decimals
+# Print 'Target:' with €, thousands separator, and 2 decimals
+print(f'Target: €{target_revenue:,.2f}')
 
-
-# TODO: Print 'Total Revenue:' with €, thousands separator, and 2 decimals
-
-
-# TODO: Print 'Target:' with €, thousands separator, and 2 decimals
-
-
-# TODO: Print 'Achievement:' as percentage with 1 decimal place
-
+# Print 'Achievement:' as percentage with 1 decimal place
+print(f'Achievement: {percentage_of_target:.1%}')
 
 # Example 5: Comparison table showing format() vs f-strings
 print('\n=== Comparing format() and f-strings ===')
@@ -524,9 +524,9 @@ price_per_unit = 3.50
 total_price = quantity * price_per_unit
 
 print('Using format():')
-# TODO: Print item, quantity, and total using format()
-
+# Print item, quantity, and total using format()
+print('Item: {}, Quantity: {}, Total: {:.2f}'.format(item, quantity, total_price))
 
 print('Using f-string:')
-# TODO: Print item, quantity, and total using f-string
-
+# Print item, quantity, and total using f-string
+print(f'Item: {item}, Quantity: {quantity}, Total: {total_price:.2f}')
