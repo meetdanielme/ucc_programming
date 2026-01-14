@@ -301,7 +301,7 @@ print(f"Smallest: {smallest}")
 
 count = 0
 total = 0
-print(f"After: {count} and {total}")
+print(f"Before: {count} and {total}")
 for num in range(10, 51, 10):
     count += 1
     total += num
