@@ -6,3 +6,5 @@ I'm taking on the BSc degree in Business Information Systems at the University C
 
 ### Year 1 (2025/26)
 * IS1110 — Introduction to Programming for Business Information Systems 1 — Python
+* IS1111 — Introduction to Programming for Business Information Systems 2 — Python
+* IS1113 — Web Development — HTML, CSS, JavaScript
