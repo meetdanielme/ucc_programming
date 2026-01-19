@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/IS1113_Web_Dev/index.html"
+    "livePreview.defaultPreviewPath": "/IS1113_Web_Dev/index.html",
+    "workbench.settings.useSplitJSON": false
 }
