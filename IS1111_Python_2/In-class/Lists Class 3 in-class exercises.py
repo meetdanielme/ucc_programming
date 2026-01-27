@@ -1,9 +1,6 @@
 # Row: [Student, Grade, Age]
 # Note: There are NO headers here. Just data.
 
-from operator import index
-
-
 students = [
     ["Alice", 90, 20], 
     ["Bob", 45, 22], 
@@ -55,7 +52,7 @@ highest_grade = ''
 maximum_grade = max(scores)
 for student in students:
     if student[1] == maximum_grade:
-        highest_grade_index = scores.index(maximum_grade) # index returns the position of the first occurrence of a specified value
+        highest_grade_index = scores.index(maximum_grade) # .index() returns the position of the first occurrence of a specified value
         highest_grade_name = students[highest_grade_index][0]
         print(f"Highest Grade: {highest_grade_name} with a score of {maximum_grade}")
 

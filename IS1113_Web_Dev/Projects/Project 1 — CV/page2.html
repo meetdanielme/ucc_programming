@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<!-- Education Details -->
+
 <html lang="en">
+
 <head>
-    <title>Daniel Marcinkowski — CV, Education Details</title>
+
+    <title>Daniel Marcinkowski — CV, Personal Details</title>
     <meta name="description" content="Business Information Systems Student | Experienced Marketing Manager">
+    
     <!-- Figtree Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <style>
+    
+    <!-- CSS Styling -->
+    <style> 
         .figtree-font {
             font-family: "Figtree", sans-serif;
             font-optical-sizing: auto;
@@ -17,17 +22,60 @@
         } 
         body {
             font-family: "Figtree", sans-serif;
-            margin: 20px;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
         }
         h1, h3 {
             font-weight: 600;
             color: #EAAA00;
         }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            font-weight: 500;
+            text-align: center;
+        }
+        h4 {
+            text-align: center;
+        }
+        a {
+            color: #EAAA00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            font-size: 14px;
+        }
     </style>
+
 </head>
 
-<h1>Daniel Marcinkowski</h1>
-    <h2>Business Information Systems Student | Experienced Marketing Manager</h2>
+<body>
+
+    <!-- Navigation -->
+    <div id="nav-bar">
+        <nav>
+            <a href="page1.html" target="_blank">Personal Details</a>
+                &nbsp;|&nbsp;
+            <a href="page2.html" target="_blank">Education</a>
+                &nbsp;|&nbsp;
+            <a href="page3.html" target="_blank">Work Experience</a>
+        </nav>
+        <hr style="opacity: 0.25; margin-top: 12px;">
+    </div>
+
+    <!-- Name & Title -->
+    <div id="header">
+        <h1><a href="page1.html">Daniel Marcinkowski</a></h1>
+        <h4>Business Information Systems Student | Experienced Marketing Manager</h4>
+    </div>
+
+    <!-- Education Section -->
+    <div id="education">
     <h3>Education</h3>
         <ul>
             <li>BSc Business Information Systems (University College Cork) — Sep 2025 – May 2029 (projected)
@@ -42,8 +90,8 @@
             <li>Google UX Design Certificate (Coursera) — Feb 2025</li>
             <li>Google Project Management Certificate (Coursera) — Oct 2024</li>
         </ul>
-    <a href="page1.html">Learn more about me</a>
-        &nbsp;|&nbsp;
-    <a href="page3.html">Learn more about my work experience</a>
+    </div>
+
 </body>
+
 </html>

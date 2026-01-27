@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 
-<!-- Personal Details -->
-
 <html lang="en">
 
 <head>
+
     <title>Daniel Marcinkowski — CV, Personal Details</title>
     <meta name="description" content="Business Information Systems Student | Experienced Marketing Manager">
     
@@ -13,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     
-    <style>
+    <!-- CSS Styling -->
+    <style> 
         .figtree-font {
             font-family: "Figtree", sans-serif;
             font-optical-sizing: auto;
@@ -22,36 +22,81 @@
         } 
         body {
             font-family: "Figtree", sans-serif;
-            margin: 20px;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
         }
         h1, h3 {
             font-weight: 600;
             color: #EAAA00;
         }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            font-weight: 500;
+            text-align: center;
+        }
+        h4 {
+            text-align: center;
+        }
         a {
             color: #EAAA00;
             text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            font-size: 14px;
+        }
+        #contact-info {
+            text-align: center;
         }
     </style>
 
 </head>
 
 <body>
-    <h1>Daniel Marcinkowski</h1>
-        <h2>Business Information Systems Student | Experienced Marketing Manager</h2>
-        <p><a href="tel:00490000000">+ 49 *** *******</a>
+
+    <!-- Navigation -->
+    <div id="nav-bar">
+        <nav>
+            <a href="page1.html" target="_blank">Personal Details</a>
+                &nbsp;|&nbsp;
+            <a href="page2.html" target="_blank">Education</a>
+                &nbsp;|&nbsp;
+            <a href="page3.html" target="_blank">Work Experience</a>
+        </nav>
+        <hr style="opacity: 0.25; margin-top: 12px;">
+    </div>
+
+    <!-- Name & Title -->
+    <div id="header">
+        <h1><a href="page1.html">Daniel Marcinkowski</a></h1>
+        <h4>Business Information Systems Student | Experienced Marketing Manager</h4>
+    </div>
+
+    <!-- Contact Info -->
+    <div id="contact-info">
+        <p><a href="tel:00490000000" target="_blank">+ 49 *** *******</a>
             &nbsp;|&nbsp;
-            <a href="mailto:125701129@umail.ucc.ie">125701129@umail.ucc.ie</a>
+            <a href="mailto:125701129@umail.ucc.ie" target="_blank">125701129@umail.ucc.ie</a>
             &nbsp;|&nbsp;
-            <a href="https://meetdaniel.me">meetdaniel.me</a>
+            <a href="https://meetdaniel.me" target="_blank">meetdaniel.me</a>
             &nbsp;|&nbsp;
-            <a href="https://meetdaniel.me/work">Portfolio</a>
+            <a href="https://meetdaniel.me/work" target="_blank">Portfolio</a>
         </p>
-        <img src="https://i0.wp.com/meetdaniel.me/wp-content/uploads/2025/08/dsc02513-edited.jpeg?w=1026&ssl=1" alt="Daniel Marcinkowski Headshot" height="300" style="border-radius: 16px;">
+    </div>
+
+    <!-- Profile Picture -->
+    <img src="https://i0.wp.com/meetdaniel.me/wp-content/uploads/2025/08/dsc02513-edited.jpeg?w=1026&ssl=1" alt="Daniel Marcinkowski Headshot" height="300" style="border-radius: 16px; display: block; margin: 0 auto; margin-top: 24px; margin-bottom: 24px;">
+        
+    <!-- Professional Summary -->
+    <div id="professional-summary">
         <h3>Professional Summary</h3>
-            <p>Business Information Systems student with a decade in startup marketing, known for being resourceful, reliable, and highly organised. I combine hands-on product marketing and content strategy with technical training in programming and systems analysis. Adaptable and empathetic in how I work, I connect strategy, data, and user needs to create innovative solutions that deliver value.</p>
-    <a href="page2.html">Learn more about my education</a>
-    &nbsp;|&nbsp;
-    <a href="page3.html">Learn more about my work experience</a>
+        <p>Business Information Systems student with a decade in startup marketing, known for being resourceful, reliable, and highly organised. I combine hands-on product marketing and content strategy with technical training in programming and systems analysis. Adaptable and empathetic in how I work, I connect strategy, data, and user needs to create innovative solutions that deliver value.</p>
+    </div>
+
 </body>
 </html>
