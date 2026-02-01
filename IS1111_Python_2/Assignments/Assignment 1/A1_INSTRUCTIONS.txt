@@ -261,43 +261,43 @@ IMPLEMENTATION CHECKLIST
 Before submitting, verify your programme has:
 
 Data Structures:
-[ ] Main 'inventory' list created
-[ ] Constants defined for column indices (IDX_NAME, etc.)
-[ ] Lists are initialised with sample data or empty
+[x] Main 'inventory' list created
+[x] Constants defined for column indices (IDX_NAME, etc.)
+[x] Lists are initialised with sample data or empty
 
 Required Functions (minimum required) to:
-[ ] Display the main menu and return the user's choice
-[ ] Show all products in a formatted table with details
-[ ] Add a new product sub-list after checking for duplicates
-[ ] Handle stock updates for sales and deliveries
-[ ] Remove a product sub-list from the inventory
-[ ] Display products with stock levels below minimum thresholds
-[ ] Calculate and return the total value of all inventory
-[ ] Validate and return float input from user with minimum value check
-[ ] Validate and return integer input from user with minimum value check
+[x] Display the main menu and return the user's choice
+[x] Show all products in a formatted table with details
+[x] Add a new product sub-list after checking for duplicates
+[x] Handle stock updates for sales and deliveries
+[x] Remove a product sub-list from the inventory
+[x] Display products with stock levels below minimum thresholds
+[x] Calculate and return the total value of all inventory
+[x] Validate and return float input from user with minimum value check
+[x] Validate and return integer input from user with minimum value check
 
 Main Programme:
-[ ] Initialises the inventory list
-[ ] Displays welcome message
-[ ] Loops until user chooses exit
-[ ] Calls appropriate functions based on menu choice
-[ ] Displays goodbye message on exit
+[x] Initialises the inventory list
+[x] Displays welcome message
+[x] Loops until user chooses exit
+[x] Calls appropriate functions based on menu choice
+[x] Displays goodbye message on exit
 
 Code Quality:
-[ ] All functions have docstrings
-[ ] Function names use verbs (add_product, not product_add)
-[ ] Proper error handling (product not found, invalid input)
-[ ] Currency formatted with € symbol and 2 decimal places
-[ ] Code uses the IDX constants instead of hard-coded numbers (e.g. [2])
+[x] All functions have docstrings
+[x] Function names use verbs (add_product, not product_add)
+[x] Proper error handling (product not found, invalid input)
+[x] Currency formatted with € symbol and 2 decimal places
+[x] Code uses the IDX constants instead of hard-coded numbers (e.g. [2])
 
 Testing:
-[ ] Can add products successfully
-[ ] Cannot add duplicate products (case-insensitive check)
-[ ] Can remove products (pops correctly)
-[ ] Stock updates work for both sales and deliveries
-[ ] Low stock alerts show correct products
-[ ] Total value calculates correctly
-[ ] Programme handles invalid input gracefully
+[x] Can add products successfully
+[x] Cannot add duplicate products (case-insensitive check)
+[x] Can remove products (pops correctly)
+[x] Stock updates work for both sales and deliveries
+[x] Low stock alerts show correct products
+[x] Total value calculates correctly
+[x] Programme handles invalid input gracefully
 
 =============================================================================
 COMMON MISTAKES TO AVOID
