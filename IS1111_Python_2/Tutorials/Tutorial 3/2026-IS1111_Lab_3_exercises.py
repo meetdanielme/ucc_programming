@@ -169,7 +169,7 @@ print("Normalised codes:", normalise_codes(raw_codes))
 
 # (b)
 def make_pick_list(codes):
-    lines = ["Pick List", "---------",]
+    lines = ["Pick List", "---------"]
     counter = 1
     for code in codes:
         lines.append(f"{counter}) {code}")
