@@ -65,6 +65,18 @@ def get_valid_int(prompt, min_value=0):
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
+def get_valid_string(prompt, field_name="input"):
+    """
+    Repeatedly asks user for input until a non-empty string is entered.
+    Returns the stripped, title-cased string.
+    """
+    while True:
+        value = input(prompt).strip()
+        if value:  # Non-empty after stripping
+            return value.title()
+        else:
+            print(f"Error: {field_name} cannot be empty. Please try again.")
+
 # You may add other helper functions as needed 
 
 # =============================================================================
@@ -92,11 +104,12 @@ def display_menu():
     print("6. View Total Inventory Value")
     print("7. Exit\n")
 
-    choice = get_valid_int("Enter your choice (1-7): ", 1)
-    while choice > 7:
-        print("Invalid choice. Please select a number between 1 and 7.")
+    while True:
         choice = get_valid_int("Enter your choice (1-7): ", 1)
-    return choice
+        if 1 <= choice <= 7:
+            return choice
+        else:
+            print("Invalid choice. Please select a number between 1 and 7.")
 
 # --- Viewing All Products ---
 def view_all_products(inventory):
@@ -130,13 +143,13 @@ def add_product(inventory):
     """
 
     print("\n--- Add a New Product ---\n")
-    name = input("Enter product name: ").strip()
+    name = get_valid_string("Enter product name: ", "Product name")
     # Check for duplicates
     for product in inventory:
         if product[IDX_NAME].lower() == name.lower():
             print(f"Error: Product '{name}' already exists in inventory.\n")
             return
-    category = input("Enter category: ").strip().title()
+    category = get_valid_string("Enter category: ", "Category")
     price = get_valid_float("Enter price (€): ", 0.01)
     quantity = get_valid_int("Enter current stock quantity: ", 0)
     min_stock = get_valid_int("Enter minimum stock level: ", 0)
@@ -216,7 +229,7 @@ def view_low_stock(inventory):
     - Display each low stock product with amount to order
     """
 
-    low_stock_products = [product for product in inventory if product[IDX_QTY] <= product[IDX_MIN]]
+    low_stock_products = [product for product in inventory if product[IDX_QTY] < product[IDX_MIN]]
     if not low_stock_products:
         print("\nNo products need restocking.\n")
         return
