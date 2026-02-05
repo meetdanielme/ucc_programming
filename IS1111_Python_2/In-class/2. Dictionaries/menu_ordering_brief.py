@@ -26,7 +26,7 @@ menu = {
 #   get_price(menu, "Pizza") → -1
 
 def get_price(menu, item_name):
-    pass
+    return menu.get(item_name, -1)
 
 
 # TASK 2: add_item()
@@ -36,7 +36,10 @@ def get_price(menu, item_name):
 #   add_item(menu, "Lemonade", 2.49) → warning, already exists
 
 def add_item(menu, item_name, price):
-    pass
+    if item_name in menu:
+        print(f"Warning: '{item_name}' already exists on the menu.")
+    else:
+        menu[item_name] = price
 
 
 # TASK 3: update_price()
@@ -46,7 +49,10 @@ def add_item(menu, item_name, price):
 #   update_price(menu, "Pizza", 9.99) → error, not on menu
 
 def update_price(menu, item_name, new_price):
-    pass
+    if item_name not in menu:
+        print(f"Warning: '{item_name}' doesn't exists on the menu.")
+    else:
+        menu[item_name] = new_price
 
 
 # TASK 4: calculate_order_total()
@@ -57,7 +63,11 @@ def update_price(menu, item_name, new_price):
 #   calculate_order_total(menu, order) → 10.97
 
 def calculate_order_total(menu, order):
-    pass
+    total = 0
+    for key, value in menu.items():
+        if key in order:
+            total += value
+    return total
 
 
 # TASK 5: display_menu()
@@ -66,7 +76,9 @@ def calculate_order_total(menu, order):
 #           price = menu[item]
 
 def display_menu(menu):
-    pass
+    for item in menu:
+        price = menu[item]
+        print(f"{item}: €{price:.2f}")
 
 
 # TEST YOUR FUNCTIONS

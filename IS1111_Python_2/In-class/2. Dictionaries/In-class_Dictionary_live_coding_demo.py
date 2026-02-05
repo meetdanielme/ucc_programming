@@ -38,15 +38,12 @@ names.sort()
 print("After sorting names only (misaligned):")
 for i in range(len(student_ids)):
     print(student_ids[i], names[i], programmes[i], gpas[i])
-print("Problem: IDs/programmes/GPAs are now attached to the wrong names.\n")
 
 # Parallel lists: deleting from ONE list breaks alignment / lengths
 removed_name = names.pop(0)
-print("After deleting from names only:")
 print("Removed:", removed_name)
 print("Lengths:", len(student_ids), len(names), len(programmes), len(gpas))
-print("Problem: different lengths -> easy to crash or display wrong records.\n")
-
+print()
 
 # Nested list (2D list): each row is a student record
 students_nested = [
@@ -79,26 +76,62 @@ print(students_nested)
 print()
 
 
-# Dictionary: key = student ID, value = rest of the record
-# Using tuples for values keeps this "flat" (we're not using nested dicts yet)
-students_dict = {
+# Dictionary: step-by-step intro (start simple, then add complexity)
+
+# Step 1: simplest dictionary: key -> single value
+# key = student ID, value = name
+student_name_by_id = {
+    101: "Siobhan",
+    102: "Aoife",
+    103: "Cian",
+}
+
+print("Dictionary (simple) lookup:", target_id, "->", student_name_by_id[target_id])
+
+# Update a value (overwrite)
+student_name_by_id[target_id] = "Aoife Byrne"
+print("After overwrite name:", student_name_by_id[target_id])
+
+# Add / delete are direct by key
+student_name_by_id[104] = "Ben"
+del student_name_by_id[103]
+print("After add/delete:", student_name_by_id)
+print()
+
+
+# Step 2: dictionary values can store MORE than one field (tuple values)
+# Tuple values are immutable, so updates mean overwriting the whole tuple.
+students_dict_tuples = {
     101: ("Siobhan", "BIS", 3.9),
     102: ("Aoife", "BIS", 3.6),
     103: ("Cian", "CS", 3.2),
 }
 
-# Dictionary: direct lookup by ID (no search loop)
-print("Dictionary lookup (direct):", target_id, students_dict[target_id])
+print("Dictionary (tuple values) lookup:", target_id, students_dict_tuples[target_id])
 
-# Dictionary: update means overwrite the value for that key
-name, programme, gpa = students_dict[target_id]
-students_dict[target_id] = (name, programme, 3.7)
-print("After dictionary GPA update:", target_id, students_dict[target_id])
+name, programme, gpa = students_dict_tuples[target_id]
+students_dict_tuples[target_id] = (name, programme, 3.7)  # overwrite tuple to update GPA
+print("After tuple GPA update:", target_id, students_dict_tuples[target_id])
+print()
 
-# Dictionary: add/delete are also direct operations by key
-del students_dict[103]
-students_dict[104] = ("Ben", "BIS", 3.1)
-print("After delete/add:", students_dict)
+
+# Step 3: dictionary values can also be LISTS (mutable), allowing in-place updates
+students_dict_lists = {
+    101: ["Siobhan", "BIS", 3.9],
+    102: ["Aoife", "BIS", 3.6],
+    103: ["Cian", "CS", 3.2],
+}
+
+print("Dictionary (list values) lookup:", target_id, students_dict_lists[target_id])
+
+# Update GPA in-place (list is mutable)
+students_dict_lists[target_id][2] = 3.7
+print("After in-place list GPA update:", target_id, students_dict_lists[target_id])
+
+# Add / delete still direct
+del students_dict_lists[103]
+students_dict_lists[104] = ["Ben", "BIS", 3.1]
+print("After delete/add (list values):", students_dict_lists)
 print()
 
 
@@ -118,6 +151,7 @@ print("countries:", countries)
 print("numbers:", numbers)
 print("movie:", movie)
 print()
+
 
 
 # Accessing, adding, modifying (dictionaries are mutable)
@@ -162,12 +196,23 @@ purse["candy"] = purse["candy"] + 2
 print("After candy update:", purse)
 print()
 
+# Terminology crossover:
+# - Python: dictionary (dict)
+# - Other languages: map / associative array
+# - Common implementation name: hash map / hash table (because hashing supports fast lookup)
+# - Data interchange: a JSON "object" is often loaded into a dict in Python
+
 # Hashing (why dict lookup is fast, and why keys must be immutable)
 # Dicts use hash(key) internally to decide where to store/find a value.
+# Note: Python randomises hashing for strings between PROGRAM RUNS (security feature),
+# so hash("email") may differ tomorrow. Within one run, it is consistent.
 
 print("hash('email'):", hash("email"))
+print("hash('email') again:", hash("email"))
 print("hash(102):", hash(102))
+print("hash(102) again:", hash(102))
 print()
+
 
 # Same key -> same value -> stable lookup
 demo = {"email": "student@ucc.ie"}
@@ -199,10 +244,18 @@ print("Values can be lists:", profile["roles"])
 print()
 
 
-# Looping a dictionary: for-in gives keys (ties to quiz)
 print("Looping countries (keys -> values):")
 for code in countries:
     print(code, "->", countries[code])
+print()
+
+print("countries.keys() as a list:", list(countries.keys()))
+print("countries.values() as a list:", list(countries.values()))
+print()
+
+print("Looping with items() (key, value together):")
+for code, country in countries.items():
+    print(code, "->", country)
 print()
 
 # values(): show it as a list (ties to quiz wording)
@@ -298,8 +351,21 @@ def display_menu(menu_dict):
 
 # Menu demo: lookups
 print("Menu lookup examples:")
-print("Caesar Salad:", get_price(menu, "Caesar Salad"))
-print("Pizza:", get_price(menu, "Pizza"))
+
+item = "Caesar Salad"
+price = get_price(menu, item)
+if price is None:
+    print(item, "not found")
+else:
+    print(item + ":", price)
+
+item = "Pizza"
+price = get_price(menu, item)
+if price is None:
+    print(item, "not found")
+else:
+    print(item + ":", price)
+
 print()
 
 # Menu demo: adding items
