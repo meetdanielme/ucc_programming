@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8" />
+        <title>Week 5 - Tables</title>
+
+        <style>
+            .budgetTable {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 12px;
+                border: 3px solid #003366; /* outer border */
+            }
+            .budgetTable th, .budgetTable td {
+                border: 1px solid #cccccc; /* inner borders */
+                padding: 10px;
+                text-align: left;
+            }
+            .budgetTable th {
+                background-color: #f2f2f2;
+            }
+            .budgetTable tr:hover {
+                background-color: #fafafa;
+            }
+            .budgetTable td:not(:first-child) {
+                text-align: right;
+            }
+            .budgetTable caption {
+                font-weight: bold;
+                padding: 8px;
+            }
+            </style>
+
+    </head>
+
+    <body>
+        <h1>Weekly Budget Table</h1>
+        <table class="budgetTable">
+            <caption>Monthly Spending (&euro;)</caption>
+            <tr>
+                <th>Item</th>
+                <th>Week 1 (&euro;)</th>
+                <th>Week 2 (&euro;)</th>
+                <th>Week 3 (&euro;)</th>
+                <th>Week 4 (&euro;)</th>
+                <th>Total (&euro;)</th>
+            </tr>
+            <tr>
+                <td>Food</td>
+                <td>45</td>
+                <td>50</td>
+                <td>42</td>
+                <td>48</td>
+                <td>185</td>
+            </tr>
+            <tr>
+                <td>Transport</td>
+                <td>12</td>
+                <td>10</td>
+                <td>14</td>
+                <td>11</td>
+                <td>47</td>
+            </tr>
+            <tr>
+                <td>Coffee</td>
+                <td>8</td>
+                <td>6</td>
+                <td>7</td>
+                <td>9</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Other</td>
+                <td>15</td>
+                <td>12</td>
+                <td>10</td>
+                <td>14</td>
+                <td>51</td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td>80</td>
+                <td>78</td>
+                <td>73</td>
+                <td>82</td>
+                <td>313</td>
+            </tr>
+        </table>
+
+    </body>
+
+</html>
