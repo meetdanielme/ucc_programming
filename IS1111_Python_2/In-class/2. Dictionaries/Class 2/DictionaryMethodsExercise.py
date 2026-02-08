@@ -53,7 +53,10 @@ online_sales = {
 #            "Monitor Stand": 1, "Headphones": 2}
 
 def count_sales(transaction_list):
-    pass
+    in_store_sales = {}
+    for sale in transaction_list:
+        in_store_sales[sale] = in_store_sales.get(sale, 0) + 1
+    return in_store_sales
 
 # TASK 2: best_seller(sales_counts)
 # Takes a sales count dictionary (like Task 1's output).
@@ -63,8 +66,14 @@ def count_sales(transaction_list):
 # Expected: ("USB Cable", 5)
 
 def best_seller(sales_counts):
-    pass
-
+    top_seller = None
+    top_count = 0
+    for item, count in sales_counts.items():
+        if count > top_count:
+            top_seller = item
+            top_count = count
+    return top_seller, top_count
+        
 
 # TASK 3: calculate_revenue(sales_counts, price_dict)
 # Takes sales counts and the price dictionary.
@@ -74,7 +83,9 @@ def best_seller(sales_counts):
 # Expected: {"USB Cable": 44.95, "Wireless Mouse": 99.96, ...}
 
 def calculate_revenue(sales_counts, price_dict):
-    pass
+    total_revenue = {}
+    for item, count in sales_counts.items():
+        total_revenue[sale] = total_revenue(item, )
 
 
 # TASK 4: process_return(sales_counts, product_name)
