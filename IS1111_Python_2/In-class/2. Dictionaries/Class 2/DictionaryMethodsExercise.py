@@ -85,7 +85,9 @@ def best_seller(sales_counts):
 def calculate_revenue(sales_counts, price_dict):
     total_revenue = {}
     for item, count in sales_counts.items():
-        total_revenue[sale] = total_revenue(item, )
+        price = price_dict.get(item, 0.00)
+        total_revenue[item] = count * price
+    return total_revenue
 
 
 # TASK 4: process_return(sales_counts, product_name)
