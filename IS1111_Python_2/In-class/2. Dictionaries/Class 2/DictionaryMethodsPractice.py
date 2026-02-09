@@ -31,7 +31,7 @@ print(f"Top category: {top_cat} ({top_num} sales)")
 # ── Section 3: Aggregations ─────────────────────────────────────
 
 # How many total items were sold?
-total_sold = len(category_counts.values())
+total_sold = sum(category_counts.values())
 print(f"Total items sold: {total_sold}")
 
 
