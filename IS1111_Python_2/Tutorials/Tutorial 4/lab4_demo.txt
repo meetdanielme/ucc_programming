@@ -1,0 +1,8 @@
+From alice@umail.ucc.ie Sat Jan 5 09:14:16 2008
+From bob@gmail.com Fri Jan 4 18:10:48 2008
+From ciara@yahoo.com Fri Jan 4 16:10:39 2008
+From ciara@yahoo.com Fri Jan 4 16:00:00 2008
+From alice@umail.ucc.ie Thu Jan 3 12:00:00 2008
+From dan@gmail.com Thu Jan 3 10:22:00 2008
+From bob@gmail.com Wed Jan 2 09:00:00 2008
+Test line: test@email.com
