@@ -16,19 +16,19 @@ logins["ben"] = 2 # ben logs in twice
 logins["cara"] = 1 # cara logs in once
 
 # print the dictionary
-print(logins)
+print("Logins:", logins)
 
 # (b) Ben logs in again
 logins["ben"] = logins["ben"] + 1
 
 # (c) Print how many logins anna has
-print(logins["anna"])
+print("Anna's logins:", logins["anna"])
 
 # (d) Print 0 if david does not exist
-print(logins.get("david", 0))
+print("David's logins:", logins.get("david", 0))
 
 # (e) Check if any user has exactly 3 logins
-print(3 in logins.values())
+print("Does anyone have exactly 3 logins?", 3 in logins.values())
 
 
 # -------------------------------------------------------
@@ -49,10 +49,10 @@ for movie in ratings:
 
 # (b) Print each movie and its count
 for movie, count in ratings_count.items():
-    print(movie, count)
+    print(f"{movie}: {count}")
 
 # (c) Print number of different movies
-print(len(ratings_count))
+print("Number of different movies:", len(ratings_count))
 
 
 
