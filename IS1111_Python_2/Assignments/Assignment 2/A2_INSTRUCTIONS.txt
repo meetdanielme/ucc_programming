@@ -1,0 +1,400 @@
+=============================================================================
+ASSIGNMENT 2 INSTRUCTIONS
+Dictionary-Enhanced Inventory System (Version 2.0)
+=============================================================================
+
+Your task: Add NEW features to a provided dictionary-based inventory system
+to demonstrate your mastery of dictionaries and new Python concepts.
+
+=============================================================================
+NEW APPROACH FOR A2
+=============================================================================
+
+IMPORTANT: You do NOT need to refactor or convert your old code.
+
+Provided:
+  - Full dictionary-based code for all basic operations from A1
+  - Helper functions, menu system, add/update/remove/view operations
+
+You write:
+  - 5 NEW functions that add advanced features
+  - Functions that demonstrate dictionary mastery
+  - Features that weren't in A1
+
+This approach allows you to:
+  - Demonstrate dictionary mastery through new functionality
+  - Apply patterns from working examples to solve new problems
+  - Extend existing code
+  - Demonstrate competency in search, transaction logging, and reporting
+
+=============================================================================
+LEARNING OBJECTIVES
+=============================================================================
+
+By completing this assignment, you will demonstrate your ability to:
+  - Work with nested dictionary structures
+  - Access and modify data using keys instead of numeric indices
+  - Generate unique identifiers for dictionary keys
+  - Implement search functionality with multiple criteria
+  - Log transactions with timestamps using datetime
+  - Generate summary reports by grouping dictionary data
+  - Read and understand dictionary-based code
+
+=============================================================================
+UNDERSTANDING THE TRANSITION: NESTED LISTS → DICTIONARIES
+=============================================================================
+
+A1 used nested lists (list of lists) with index constants:
+  inventory = [
+      ["Milk", "Dairy", 1.50, 20, 10],
+      ["Bread", "Bakery", 0.85, 15, 5]
+  ]
+  IDX_PRICE = 2
+  # Access: product[IDX_PRICE]
+  # Must remember what each index means
+
+A2 uses nested dictionaries with product IDs and meaningful keys:
+  inventory = {
+      "P001": {"name": "Milk", "category": "Dairy", "price": 1.50, ...},
+      "P002": {"name": "Bread", "category": "Bakery", "price": 0.85, ...}
+  }
+  # Access: product["price"]
+  # Self-documenting, no index constants needed
+
+Benefits of dictionaries:
+  - Product ID ("P001") uniquely identifies each product
+  - Keys are self-documenting: product["price"] vs product[IDX_PRICE]
+  - Easy to add new attributes without updating index constants
+  - More readable and maintainable code
+
+=============================================================================
+WHAT'S PROVIDED IN THE TEMPLATE
+=============================================================================
+
+You receive a starter file (inventory_v2_template.py) with:
+
+- Helper functions (get_valid_float, get_valid_int)
+- display_menu() - shows 10 menu options
+- view_all_products() - displays all products from dictionary
+- add_product() - adds products to dictionary
+- update_stock() - modifies stock quantities
+- remove_product() - removes products from dictionary
+- view_low_stock() - finds products needing reorder
+- calculate_inventory_value() - calculates total value
+- main() - complete programme structure with menu loop
+
+Your new functions should follow the same conventions as the provided functions:
+  - Clear docstrings with purpose, parameters, and return values
+  - Meaningful variable names using snake_case and verbs
+  - Consistent formatting and indentation
+  - Appropriate comments for complex logic
+
+=============================================================================
+WHAT YOU MUST WRITE: 5 NEW FUNCTIONS
+=============================================================================
+
+Function 1: generate_product_id(inventory)
+------------------------------------------
+Purpose: Create unique product IDs (P001, P002, P003, etc.)
+
+Requirements:
+  - Return "P001" if inventory is empty
+  - Otherwise, find highest existing ID number and add 1
+  - Format as 4 characters: 'P' + 3 digits (P001, P099, P234)
+
+Example:
+  If inventory has: {"P001": {...}, "P003": {...}}
+  Return: "P004" (note: finds max, not count)
+
+Hints:
+  - Loop through inventory keys
+  - Use string indexing to extract the ID number 
+    (e.g., 001 from "P001")
+  - Track maximum number found
+  - Format result: f"P{next_num:03d}"
+
+
+Function 2: search_products(inventory)
+---------------------------------------
+Purpose: Search for products by name or category
+
+Requirements:
+  - Ask user: Search by (N)ame or (C)ategory?
+  - Get search term from user
+  - Name search: partial match, case-insensitive
+    Example: "mil" finds "Milk", "milk" finds "Milk"
+  - Category search: exact match, case-insensitive
+    Example: "dairy" finds all products in "Dairy" category
+  - Display results in formatted table
+  - Show count of products found
+
+Hints:
+  - Use .lower() for case-insensitive comparisons
+  - Store matches in a list
+  - Display table similar to view_all_products()
+
+Sample output:
+  --- Search Results ---
+  ID     Product         Category    Price    Stock
+  ==================================================
+  P001   Milk            Dairy       €1.50    20
+  P004   Butter          Dairy       €2.50    12
+  ==================================================
+  Found 2 product(s)
+
+
+Function 3: log_transaction(transactions, trans_type, product_id, product_name, quantity)
+------------------------------------------------------------------------------------------
+Purpose: Record stock changes in a transaction log
+
+Transaction types:
+  - "sale" - existing product in system, quantity decreases
+  - "delivery" - existing product in system, quantity increases
+  - "added" - new product created in system
+
+Requirements:
+  - Create a transaction dictionary with keys:
+    * "type": trans_type (e.g., "sale", "delivery", "added")
+    * "product_id": product_id
+    * "product_name": product_name
+    * "quantity": quantity (negative for sales, positive for additions)
+    * "timestamp": current date/time in ISO format
+  - Append this dictionary to the transactions list
+
+Example transaction dict:
+  {
+      "type": "sale",
+      "product_id": "P001",
+      "product_name": "Milk",
+      "quantity": -5,
+      "timestamp": "2026-01-27T14:30:00.123456"
+  }
+
+Hints:
+  - Import datetime at top of file: from datetime import datetime
+  - Use datetime.now().isoformat() for timestamp
+
+
+Function 4: view_transaction_log(transactions, num_recent=10)
+--------------------------------------------------------------
+Purpose: Display recent transactions from the log
+
+Requirements:
+  - Check if transactions list is empty
+  - Get the most recent transactions (up to num_recent, default: 10)
+  - Display newest transactions first
+  - Show formatted table with columns:
+    * Timestamp (formatted as "YYYY-MM-DD HH:MM:SS")
+    * Type
+    * Product name
+    * Quantity (with + or - sign)
+
+Hints:
+  - Get recent transactions using list slicing
+  - Reverse order by looping through the reversed 
+    recent transactions list
+  - Parse timestamp: datetime.fromisoformat(trans["timestamp"])
+  - Format time: timestamp.strftime("%Y-%m-%d %H:%M:%S")
+  - Use f-string formatting to format quantity with + or - sign
+
+Sample output:
+  --- Transaction Log (Last 10) ---
+  Timestamp            Type       Product         Quantity
+  ========================================================
+  2026-01-27 14:30:00  Sale       Milk            -5
+  2026-01-27 14:25:00  Delivery   Bread           +20
+  2026-01-27 14:20:00  Sale       Tea             -3
+  ========================================================
+
+
+Function 5: generate_category_report(inventory)
+------------------------------------------------
+Purpose: Show product count and total value per category
+
+Requirements:
+  - Create empty dict to store category summaries
+  - Loop through all products
+  - For each product:
+    * Get its category
+    * Track count of products in that category
+    * Calculate total value: price × quantity
+    * Add to running total for that category
+  - Display formatted report
+  - Show grand totals
+  - Return the category data dict
+
+Category data structure:
+  {
+      "Dairy": {"count": 2, "value": 63.00},
+      "Bakery": {"count": 1, "value": 12.75}
+  }
+
+Hint:
+  - Check if category exists in category_data before accessing it
+
+Sample output:
+  --- Category Report ---
+  Category           Products    Total Value
+  ============================================
+  Dairy              2           €63.00
+  Bakery             1           €12.75
+  Beverages          1           €96.00
+  ============================================
+  Total:             4           €171.75
+
+=============================================================================
+MENU STRUCTURE
+=============================================================================
+
+Your programme has 10 options:
+
+  === Murphy's General Store - Inventory System ===
+  1. View All Products
+  2. Add New Product
+  3. Update Stock
+  4. Remove Product
+  5. Search Products
+  6. View Low Stock Alerts
+  7. View Category Report
+  8. View Transaction Log
+  9. View Total Inventory Value
+  10. Exit
+
+Options 1-4, 6, 9: Provided (working)
+Options 5, 7, 8: Your new functions
+
+=============================================================================
+DATA STRUCTURES
+=============================================================================
+
+Inventory (nested dictionary):
+  inventory = {
+      "P001": {
+          "name": "Milk",
+          "category": "Dairy",
+          "price": 1.50,
+          "quantity": 20,
+          "min_stock": 10
+      },
+      "P002": {
+          "name": "Bread",
+          "category": "Bakery",
+          "price": 0.85,
+          "quantity": 15,
+          "min_stock": 5
+      }
+  }
+
+Transaction log (list of dictionaries):
+  transactions = [
+      {
+          "type": "sale",
+          "product_id": "P001",
+          "product_name": "Milk",
+          "quantity": -5,
+          "timestamp": "2026-01-27T14:30:00.123456"
+      },
+      {
+          "type": "delivery",
+          "product_id": "P002",
+          "product_name": "Bread",
+          "quantity": 20,
+          "timestamp": "2026-01-27T14:25:00.123456"
+      }
+  ]
+
+=============================================================================
+IMPLEMENTATION CHECKLIST
+=============================================================================
+
+Before submitting, verify your programme has:
+
+Your 5 New Functions:
+[ ] generate_product_id(inventory) - creates unique IDs
+[ ] search_products(inventory) - searches by name/category
+[ ] log_transaction(transactions, ...) - records stock changes
+[ ] view_transaction_log(transactions) - displays log
+[ ] generate_category_report(inventory) - groups by category
+
+Provided Functions (check they work):
+[ ] display_menu() - shows 10 options
+[ ] view_all_products(inventory) - displays inventory
+[ ] add_product(inventory, transactions) - adds products
+[ ] update_stock(inventory, transactions) - updates stock
+[ ] remove_product(inventory) - removes products
+[ ] view_low_stock(inventory) - shows low stock alerts
+[ ] calculate_inventory_value(inventory) - calculates total value
+
+Main Programme:
+[ ] Initialises inventory = {} (dictionary)
+[ ] Initialises transactions = [] (list)
+[ ] Menu loop calls all 10 functions correctly
+[ ] Exits cleanly on option 10
+
+Code Quality:
+[ ] All YOUR functions have complete docstrings
+[ ] Function names use snake_case and verbs
+[ ] Imports datetime at top of file
+[ ] Currency formatted with € and 2 decimals
+[ ] Searches are case-insensitive
+[ ] Product ID has required format
+
+
+=============================================================================
+TESTING YOUR CODE
+=============================================================================
+
+Test each function systematically:
+
+1. Test generate_product_id():
+   - Empty inventory returns "P001"
+   - With P001, P002 returns "P003"
+   - With P001, P003 returns "P004" (finds max, not count)
+
+2. Test search_products():
+   - Name search "mil" finds "Milk"
+   - Name search is case-insensitive
+   - Category search "dairy" finds all Dairy products
+   - Category search is case-insensitive
+   - Shows correct count
+
+3. Test log_transaction() and view_transaction_log():
+   - Transactions are recorded when adding products
+   - Transactions are recorded when updating stock
+   - Log displays newest first
+   - Timestamps are formatted correctly
+   - Quantities show correct +/- signs
+
+4. Test generate_category_report():
+   - Counts products per category correctly
+   - Calculates values correctly (price × quantity)
+   - Shows totals at bottom
+   - Handles empty inventory
+
+5. Test integration:
+   - Add product → check it appears in inventory
+   - Update stock → check transaction is logged
+   - Search → check results match
+   - Category report → check calculations
+
+=============================================================================
+SUBMISSION REQUIREMENTS
+=============================================================================
+
+File name: inventory_v2.py
+
+Your file must include:
+  - Header comment with: name, student ID, date, description
+  - Import statement: from datetime import datetime
+  - All provided functions (unchanged or minimally modified)
+  - Your 5 NEW functions with docstrings
+  - Main programme loop
+  - References section
+  - AI statement
+  - Self-reflection (2-3 sentences)
+
+Do NOT submit:
+  - Your A1 code
+  - Test files or data files
+
+=============================================================================
