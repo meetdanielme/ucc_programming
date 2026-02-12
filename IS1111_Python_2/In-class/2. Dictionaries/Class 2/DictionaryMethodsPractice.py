@@ -58,7 +58,7 @@ print("After merging online:", category_counts)
 
 # Save a backup before clearing
 backup = category_counts.copy()
-category_counts.items()
+category_counts.clear()
 
 print("Original after clear:", category_counts)
 print("Backup preserved:", backup)
