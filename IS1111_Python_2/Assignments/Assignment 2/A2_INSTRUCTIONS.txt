@@ -310,34 +310,34 @@ IMPLEMENTATION CHECKLIST
 Before submitting, verify your programme has:
 
 Your 5 New Functions:
-[ ] generate_product_id(inventory) - creates unique IDs
-[ ] search_products(inventory) - searches by name/category
-[ ] log_transaction(transactions, ...) - records stock changes
-[ ] view_transaction_log(transactions) - displays log
-[ ] generate_category_report(inventory) - groups by category
+[X] generate_product_id(inventory) - creates unique IDs
+[X] search_products(inventory) - searches by name/category
+[X] log_transaction(transactions, ...) - records stock changes
+[X] view_transaction_log(transactions) - displays log
+[X] generate_category_report(inventory) - groups by category
 
 Provided Functions (check they work):
-[ ] display_menu() - shows 10 options
-[ ] view_all_products(inventory) - displays inventory
-[ ] add_product(inventory, transactions) - adds products
-[ ] update_stock(inventory, transactions) - updates stock
-[ ] remove_product(inventory) - removes products
-[ ] view_low_stock(inventory) - shows low stock alerts
-[ ] calculate_inventory_value(inventory) - calculates total value
+[X] display_menu() - shows 10 options
+[X] view_all_products(inventory) - displays inventory
+[X] add_product(inventory, transactions) - adds products
+[X] update_stock(inventory, transactions) - updates stock
+[X] remove_product(inventory) - removes products
+[X] view_low_stock(inventory) - shows low stock alerts
+[X] calculate_inventory_value(inventory) - calculates total value
 
 Main Programme:
-[ ] Initialises inventory = {} (dictionary)
-[ ] Initialises transactions = [] (list)
-[ ] Menu loop calls all 10 functions correctly
-[ ] Exits cleanly on option 10
+[X] Initialises inventory = {} (dictionary)
+[X] Initialises transactions = [] (list)
+[X] Menu loop calls all 10 functions correctly
+[X] Exits cleanly on option 10
 
 Code Quality:
-[ ] All YOUR functions have complete docstrings
-[ ] Function names use snake_case and verbs
-[ ] Imports datetime at top of file
-[ ] Currency formatted with € and 2 decimals
-[ ] Searches are case-insensitive
-[ ] Product ID has required format
+[X] All YOUR functions have complete docstrings
+[X] Function names use snake_case and verbs
+[X] Imports datetime at top of file
+[X] Currency formatted with € and 2 decimals
+[X] Searches are case-insensitive
+[X] Product ID has required format
 
 
 =============================================================================
