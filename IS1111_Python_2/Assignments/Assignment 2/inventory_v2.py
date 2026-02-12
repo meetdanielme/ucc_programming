@@ -649,6 +649,10 @@ if __name__ == "__main__":
 # - Dictionary syntax and operations
 # - String formatting in f-strings
 #
+#
+# I acknowledge use of the Self‑Assessment Coach AI Agent provided by the instructor for reflection and self-assessment.
+#
+#
 # =============================================================================
 
 # =============================================================================
