@@ -637,7 +637,6 @@ if __name__ == "__main__":
 # REFERENCES & AI STATEMENT
 # =============================================================================
 #
-#
 # AI Tool Usage:
 # I acknowledge the use of Claude Opus 4.6 via GitHub Copilot (integrated into Visual Studio Code IDE) 
 # only to generate inline code suggestions during development.
@@ -645,6 +644,10 @@ if __name__ == "__main__":
 # The AI assistant provided suggestions for function implementations, code structure, and formatting 
 # which I reviewed, adapted, and integrated into my solution.
 #
+# The AI assistant provided autocomplete suggestions for:
+# - Function structure and formatting
+# - Dictionary syntax and operations
+# - String formatting in f-strings
 #
 # =============================================================================
 
