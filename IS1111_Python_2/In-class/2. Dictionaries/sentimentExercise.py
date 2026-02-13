@@ -57,7 +57,12 @@ data = {
 # Returns a dictionary: word → count
 
 def count_all_words(data):
-    pass
+    for review in data["reviews"]:
+        words = review.lower().split()
+        word_counts = {}
+        for word in words:
+            word_counts[word] = word_counts.get(word, 0) + 1
+    return word_counts
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -70,7 +75,10 @@ def count_all_words(data):
 # Returns the cleaned dictionary.
 
 def remove_common(word_counts, data):
-    pass
+    cleaned_counts = word_counts.copy()
+    for common in data["config"]["common_words"]:
+        cleaned_counts.pop(common, None)
+    return cleaned_counts
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -82,7 +90,18 @@ def remove_common(word_counts, data):
 # using .items(), append to results, then pop it out.
 
 def top_words(word_counts, n):
-    pass
+    word_counts_copy = word_counts.copy()
+    top_n = []
+    for _ in range(n):
+        if not word_counts_copy:
+            break
+        top_word = max(word_counts_copy.values())
+        for word, count in word_counts_copy.items():
+            if count == top_word:
+                top_n.append((word, count))
+                word_counts_copy.pop(word)
+                break
+    return top_n
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -98,7 +117,17 @@ def top_words(word_counts, n):
 #   Returns: {"positive": ["great"], "negative": ["slow"]}
 
 def extract_keywords(review_text, data):
-    pass
+    review_words = review_text.lower().split()
+    positive_found = []
+    negative_found = []
+    
+    for word in review_words:
+        if word in data["config"]["positive_keywords"]:
+            positive_found.append(word)
+        elif word in data["config"]["negative_keywords"]:
+            negative_found.append(word)
+    
+    return {"positive": positive_found, "negative": negative_found}
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -109,7 +138,10 @@ def extract_keywords(review_text, data):
 # Returns: {review_text: {"positive": [...], "negative": [...]}, ...}
 
 def map_reviews_to_keywords(data):
-    pass
+    review_keyword_map = {}
+    for review in data["reviews"]:
+        review_keyword_map[review] = extract_keywords(review, data)
+    return review_keyword_map
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -125,7 +157,17 @@ def map_reviews_to_keywords(data):
 #   {"positive": [...], "negative": [...], "neutral": [...]}
 
 def group_by_sentiment(data):
-    pass
+    grouped = {"positive": [], "negative": [], "neutral": []}
+    for review in data["reviews"]:
+        keywords = extract_keywords(review, data)
+        score = len(keywords["positive"]) - len(keywords["negative"])
+        if score > 0:
+            grouped["positive"].append(review)
+        elif score < 0:
+            grouped["negative"].append(review)
+        else:
+            grouped["neutral"].append(review)
+    return grouped
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -139,7 +181,12 @@ def group_by_sentiment(data):
 # This tells the owner which specific complaints come up most.
 
 def count_negative_keywords(grouped, data):
-    pass
+    negative_counts = {}
+    for review in grouped["negative"]:
+        keywords = extract_keywords(review, data)
+        for neg in keywords["negative"]:
+            negative_counts[neg] = negative_counts.get(neg, 0) + 1
+    return negative_counts
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -158,7 +205,43 @@ def count_negative_keywords(grouped, data):
 # Truncate long reviews: review[:38] + "..." if len > 38
 
 def print_dashboard(data):
-    pass
+    cafe_name = data["cafe_name"]
+    print(f"Review Dashboard for {cafe_name}")
+    print("=" * 40)
+    
+    # Overview stats
+    total_reviews = len(data["reviews"])
+    print(f"Total reviews: {total_reviews}")
+    
+    # Top keywords
+    word_counts = count_all_words(data)
+    cleaned_counts = remove_common(word_counts, data)
+    top_keywords = top_words(cleaned_counts, 5)
+    
+    print("\nTop Keywords:")
+    for word, count in top_keywords:
+        print(f"{word}: {'█' * count} ({count})")
+    
+    # Sentiment breakdown
+    grouped = group_by_sentiment(data)
+    print("\nSentiment Breakdown:")
+    for sentiment, reviews in grouped.items():
+        print(f"{sentiment.capitalize()}: {len(reviews)} reviews")
+    
+    # Reviews with keywords
+    review_keyword_map = map_reviews_to_keywords(data)
+    print("\nReviews with Extracted Keywords:")
+    for review, keywords in review_keyword_map.items():
+        truncated_review = review[:38] + "..." if len(review) > 38 else review
+        print(f"{truncated_review} | Positive: {keywords['positive']} | Negative: {keywords['negative']}")
+    
+    # Common complaints
+    negative_counts = count_negative_keywords(grouped, data)
+    sorted_negatives = sorted(negative_counts.items(), key=lambda x: x[1], reverse=True)
+    
+    print("\nMost Common Complaints:")
+    for neg, count in sorted_negatives:
+        print(f"{neg}: {'█' * count} ({count})")
 
 
 # ══════════════════════════════════════════════════════════════════

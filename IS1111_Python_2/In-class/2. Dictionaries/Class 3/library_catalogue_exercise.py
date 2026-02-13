@@ -46,7 +46,10 @@ catalogue = {
 # ──────────────────────────────────────────────────────────────────
 
 def find_books_by_author(catalogue, author_name):
-    pass
+    for id, book in catalogue.items():
+        if author_name.lower() in book["author"].lower():
+            return {id: book["title"]}
+    return {}
 
 
 # Test it
@@ -97,7 +100,39 @@ print()
 # ──────────────────────────────────────────────────────────────────
 
 def author_summary(catalogue):
-    pass
+    print(f"{'Author':<15} {'Titles':>6} {'Copies':>7}")
+    print("=" * 30)
+
+    # Build the summary dict
+    summary = {}
+    for book in catalogue.values():
+        author = book["author"]
+        if author not in summary:
+            summary[author] = {"titles": 0, "copies": 0}
+        summary[author]["titles"] += 1
+        summary[author]["copies"] += book["copies"]
+
+    # Display the summary and find the author with most copies
+    total_titles = 0
+    total_copies = 0
+    best_author = None
+    best_copies = 0
+    for author, data in sorted(summary.items()):
+        titles = data["titles"]
+        copies = data["copies"]
+        print(f"{author:<15} {titles:>6} {copies:>7}")
+        total_titles += titles
+        total_copies += copies
+        if copies > best_copies:
+            best_copies = copies
+            best_author = author
+
+    print("=" * 30)
+    print(f"{'Total':<15} {total_titles:>6} {total_copies:>7}")
+    print()
+    print(f"Author with most copies: {best_author} ({best_copies})")
+
+    return summary
 
 
 # Test it
@@ -140,7 +175,17 @@ print()
 # ──────────────────────────────────────────────────────────────────
 
 def suggest_restock(catalogue, min_copies=3):
-    pass
+    threshold = min_copies
+    total_needed = 0
+    for id, book in catalogue.items():
+        current = book["copies"]
+        if current < threshold:
+            needed = threshold - current
+            print(f"{id}  {book['title']:<20} {current} copies  (need {needed} more)")
+            total_needed += needed
+    if total_needed == 0:
+        print("All books are sufficiently stocked.")
+    return total_needed
 
 
 # Test it
