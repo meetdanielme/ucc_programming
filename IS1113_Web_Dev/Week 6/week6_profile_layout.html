@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Profile Page Layout</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+			}
+			.header, .sidebar, .main {
+				border: 2px solid #333;
+				padding: 12px;
+				margin: 10px;
+			}
+			.header {
+				background-color: #2f7d32;
+				color: white;
+			}
+			.page {
+				display: flex;
+				gap: 10px;
+				margin: 10px;
+			}
+			.sidebar {
+				width: 220px;
+				margin: 0; /* because it is inside flex */
+				background-color: #f2f2f2;
+			}
+			.main {
+				flex: 1;
+				margin: 0; /* fill the remaining space */
+				/* because it is inside flex */
+				background-color: #fff7a8;
+			}
+			.profilePhoto {
+				width: 160px;
+				height: 160px;
+				border-radius: 80px; /* makes it a circle */
+				display: block;
+				margin: 10px auto 16px auto; /* centres it */
+				border: 4px solid white;
+				object-fit: cover;
+			}
+			.profileName, .profileTitle {
+				text-align: center;
+				margin: 0;
+			}
+			.profileName {
+				font-weight: bold;
+			}
+			.profileTitle {
+				margin: 4px 0 12px 0;
+				color: #555;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<img src="https://www.iua.ie/wp-content/uploads/2019/08/header_uni_ucc-1024x424.jpg" alt="University College Cork" style="width:100%; height:120px; object-fit:cover;">
+			<h1>My Profile</h1>
+		</div>
+		<div class="page">
+			<div class="sidebar">
+				<img class="profilePhoto" src="https://i0.wp.com/dmarcinkowski.pl/wp-content/uploads/2025/01/DSC_5324A-by-Karen-Harms-1-1024x683.jpeg?resize=1024%2C683&ssl=1" alt="Profile photo">
+				<p class="profileName">Daniel Marcinkowski</p>
+				<p class="profileTitle">Business Information Systems student</p>
+				<h2>Menu</h2>
+				<a href="index.html">Home</a><br>
+				<a href="about.html">About</a><br>
+				<a href="contact.html">Contact</a>
+			</div>
+			<div class="main">
+				<h2>About Me</h2>
+				<p>Hello! This is my profile page.</p>
+				<h2>Skills</h2>
+				<p>HTML, CSS, JavaScript</p>
+			</div>
+		</div>
+	</body>
+</html>
