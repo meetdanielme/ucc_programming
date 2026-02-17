@@ -1,7 +1,7 @@
 # inventory_v2.py
 # Name: Daniel Marcinkowski
 # Student ID: 125701129
-# Date: 12/02/2026
+# Date: 17/02/2026
 # Description: Product Inventory Management System using dictionaries
 #              for Murphy's General Store (Assignment 2)
 
