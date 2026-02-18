@@ -9,6 +9,13 @@
         <script>
             function test() {
                 document.getElementById("output").innerHTML = "Hello World!";
+                window.prompt("What is your name?", "Type your name here"); // you have to convert a string value to another data type
+                // parseInt() converts a string to an integer, parseFloat() converts a string to a decimal number
+                let number1 = parseInt(window.prompt("Enter a number: ", "0"));
+                let number2 = parseInt(window.prompt("Enter another number: ", "0"));
+                let sum = number1 + number2;
+                document.getElementById("output").innerHTML = "The sum of " + number1 + " and " + number2 + " is " + sum;
+                window.alert("This is an alert box!"); // you can only have one button, which is "OK"
             }
         </script>
     </body>
