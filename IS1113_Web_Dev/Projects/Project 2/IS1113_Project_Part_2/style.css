@@ -27,11 +27,19 @@ a:hover {
 }
 nav { 
     position: sticky;
-    top: 0;
+    top: 12px;
     background-color: white;
-    padding: 10px 0;
+    padding: 10px 16px;
     z-index: 100;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+nav h3 {
+    margin: 0;
 }
 hr {
     opacity: 0.25; 
@@ -48,4 +56,17 @@ img {
 }
 #contact-info {
     text-align: center;
+}
+.contact-button {
+    background-color: #EAAA00;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.contact-button > a {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
 }
