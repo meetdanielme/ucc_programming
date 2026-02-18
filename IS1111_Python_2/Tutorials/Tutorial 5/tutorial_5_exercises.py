@@ -73,9 +73,16 @@ for emp in employees.values():
 for dept, summary in dept_summary.items():
     print(f"{dept}: Total Salary = {summary['total_salary']}")
 
-# 2c
-highest_dept = max(dept_summary, key=lambda d: dept_summary[d]["total_salary"])
-print(f"Department with highest total salary: {highest_dept} (Total Salary = {dept_summary[highest_dept]['total_salary']})")
+# 2c - without lambda
+highest_dept = None
+highest_salary = 0
+
+for dept, summary in dept_summary.items():
+    if summary["total_salary"] > highest_salary:
+        highest_salary = summary["total_salary"]
+        highest_dept = dept
+
+print(f"Department with highest total salary: {highest_dept} (Total Salary = {highest_salary})")
 
 # -------------------------------------------------------
 # QUESTION 3 — Dict ↔ list conversions
