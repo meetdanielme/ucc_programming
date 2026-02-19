@@ -184,22 +184,22 @@
     </section>
 
     <!-- Floating CTA -->
-    <button class="contact-button"><a href="#contact-form">Contact Me</a></button>
+    <button class="button" id="contact-button"><a href="#contact-form">Contact Me</a></button>
 
     <!-- Contact Form -->
     <div id="contact-form">
         <h4>Contact Me</h4>
         <form action="mailto:125701129@umail.ucc.ie" method="post" enctype="text/plain">
-            <label for="name">Name<span class="asterisk">*</span></label>
-            <input type="text" id="name" name="name" required>
+            <label class="contact-form-label" for="name">Name<span class="asterisk">*</span></label>
+            <input class="contact-form-input" type="text" id="name" name="name" required>
 
-            <label for="email">Email<span class="asterisk">*</span></label>
-            <input type="email" id="email" name="email" required>
+            <label class="contact-form-label" for="email">Email<span class="asterisk">*</span></label>
+            <input class="contact-form-input" type="email" id="email" name="email" required>
 
-            <label for="message">Message<span class="asterisk">*</span></label>
+            <label class="contact-form-label" for="message">Message<span class="asterisk">*</span></label>
             <textarea id="message" name="message" rows="5" required></textarea>
 
-            <button type="submit">Send</button>
+            <button class="button" id="send-button" type="submit"><span id="button-text">Send</span></button>
         </form>
     </div>
 
