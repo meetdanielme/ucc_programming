@@ -1,0 +1,26 @@
+[
+    {
+        "colour": "beige",
+        "make": "Toyota",
+        "model": "Corolla",
+        "price": "700",
+        "type": "car",
+        "year": "1980"
+    },
+    {
+        "colour": "Fjord Blue",
+        "make": "Volvo",
+        "model": "C40 Recharge",
+        "price": "62515",
+        "type": "car",
+        "year": "2023"
+    },
+    {
+        "colour": "white",
+        "make": "Citroen",
+        "model": "Nemo",
+        "price": "2150",
+        "type": "van",
+        "year": "2008"
+    }
+]

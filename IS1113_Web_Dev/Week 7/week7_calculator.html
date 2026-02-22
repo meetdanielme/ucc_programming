@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Calculator</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: rosybrown;
+                padding: 30px;
+            }
+            .calc{
+                width: 360px;
+                background-color: rgb(230, 136, 183);
+                border: 2px solid #333;
+                border-radius: 12px;
+                padding: 16px;
+                margin: 0 auto;
+            }
+            .calc input{
+                width: 100%;
+                padding: 10px;
+                margin-top: 6px;
+                box-sizing: border-box;
+            }
+            .calc button{
+                background-color: rgb(133, 233, 237);
+                width: 22%;
+                padding: 10px;
+                margin-top: 10px;
+                margin-right: 2%;
+                font-size: 40px;
+                cursor: pointer;
+                border-radius: 10px; /* rounded corners */
+                border: 1px solid #333;
+            }
+            .calc button:hover{
+                background-c
+                color: #d4d0d0;
+            }
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="calc">
+            <h1>Simple Calculator</h1>
+            <p>Number 1: <input id="n1" type="text"></p>
+            <p>Number 2: <input id="n2" type="text"></p>
+            <button onclick="add()">+</button>
+            <button onclick="subtract()">-</button>
+            <button onclick="multiply()">*</button>
+            <button onclick="divide()">/</button>
+            <p id="result">Result: </p>
+        </div>
+        <!-- Scripts -->
+        <script>
+            function getNum1() {
+                return parseInt(document.getElementById("n1").value);
+            }
+            function getNum2() {
+               return parseInt(document.getElementById("n2").value); 
+            }
+            function showResult(value) {
+                document.getElementById("result").textContent = "Result: " + value;
+            }
+            function add() {
+                var result = getNum1() + getNum2();
+                showResult(result);
+            }
+            function subtract() {
+                var result = getNum1() - getNum2();
+                showResult(result);
+            }
+            function multiply() {
+                var result = getNum1() * getNum2();
+                showResult(result);
+            }
+            function divide() {
+                var result = getNum1() / getNum2();
+                showResult(result);
+            }
+        </script>
+    </body>
+
+</html>
