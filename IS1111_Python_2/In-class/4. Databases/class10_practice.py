@@ -42,7 +42,17 @@ inventory = {
 #   load_inventory("missing.json")     → prints note, returns {}
 
 def load_inventory(filename):
-    pass
+    try:
+        with open(filename, "r") as f:
+            data = json.load(f)
+        print(f"Loaded {len(data)} products from {filename}")
+        return data
+    except FileNotFoundError:
+        print(f"Note: {filename} not found. Starting with empty inventory.")
+        return {}
+    except json.JSONDecodeError:
+        print(f"Error: Could not read {filename} because the JSON is invalid.")
+        return {}
 
 
 # TASK 2: update_price(inventory, product_id, new_price, filename)
@@ -65,7 +75,15 @@ def load_inventory(filename):
 #   → prints "Error: S999 not found", returns False
 
 def update_price(inventory, product_id, new_price, filename):
-    pass
+    if product_id not in inventory:
+        print(f"Error: {product_id} not found in inventory.")
+        return False
+    old_price = inventory[product_id]["price"]
+    inventory[product_id]["price"] = new_price
+    with open(filename, "w") as f:
+        json.dump(inventory, f, indent=2)
+    print(f"Updated {product_id}: €{old_price:.2f} → €{new_price:.2f}")
+    return True
 
 
 # TASK 3: export_price_list(inventory, filename)
@@ -84,7 +102,18 @@ def update_price(inventory, product_id, new_price, filename):
 #   ...
 
 def export_price_list(inventory, filename):
-    pass
+    with open(filename, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["ID", "Name", "Category", "Price", "Stock"])
+        for pid, product in inventory.items():
+            writer.writerow([
+                pid,
+                product["name"],
+                product["category"],
+                f"{product['price']:.2f}",
+                product["stock"]
+            ])
+    print(f"Exported {len(inventory)} products to {filename}")
 
 
 # ── Test your functions ──────────────────────────────────────────
