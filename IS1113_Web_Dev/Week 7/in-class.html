@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+
+    <h1>JavaScript switch statement example</h1>
+    <p>Open your browser console to see the result.</p>
+
+    <script>
+        // Ask the user to type a password in a pop-up input box.
+        let password = prompt("Please enter your password:");
+
+        // if/else checks one condition (true or false).
+        // If the password matches exactly, show a welcome message.
+        if (password === "letmein") {
+            alert("Welcome!");
+        } else {
+            // If it does not match, show an access denied message.
+            alert("Incorrect password. Access denied.");
+        }
+
+        // Ask for a number and convert it from text to a Number.
+        let dayNumber = Number(prompt("Enter a number from 1 to 7 to get a day name:"));
+
+        // This variable will store the final day result.
+        let dayName;
+
+        // switch compares dayNumber to each case value.
+        // It is useful when you have many exact-value checks.
+        switch (dayNumber) {
+            case 1:
+                dayName = "Monday";
+                // break stops the switch here.
+                // Without break, execution continues to the next case.
+                break;
+            case 2:
+                dayName = "Tuesday";
+                break;
+            case 3:
+                dayName = "Wednesday";
+                break;
+            case 4:
+                dayName = "Thursday";
+                break;
+            case 5:
+                dayName = "Friday";
+                break;
+            case 6:
+                dayName = "Saturday";
+                break;
+            case 7:
+                dayName = "Sunday";
+                break;
+
+            // default runs when no case matches.
+            default:
+                dayName = "Invalid input. Please enter a number from 1 to 7.";
+        }
+
+        // Print the result in the browser console.
+        console.log("Result:", dayName);
+
+        // Show the same result in a pop-up alert.
+        alert(dayName);
+    </script>
+</body>
+
+</html>

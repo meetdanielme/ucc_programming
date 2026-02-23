@@ -1,6 +1,6 @@
 # main.py
-# Name: [Your Name]
-# Student ID: [Your Student ID]
+# Name: Daniel Marcinkowski
+# Student ID: 125701129
 # Date: [Date]
 # Description: [Description of the module's purpose and functionality]
 
@@ -8,7 +8,9 @@
 # IMPORTS
 # =============================================================================
 # Import functions from your other modules here
-
+import functions_for_reuse as reuse
+import data_handler as dh
+import inventory_operations as inv_ops
 
 # =============================================================================
 # ASSIGNMENT 3: Persistent Storage & Modules
