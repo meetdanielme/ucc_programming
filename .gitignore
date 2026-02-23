@@ -1,2 +1,18 @@
 .DS_Store
 **/.DS_Store
+
+# Python cache files
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# IDE/editor settings
+.idea/
+**/.idea/
+.vscode/
+**/.vscode/
+
+# Common temporary files
+*.swp
+*~
