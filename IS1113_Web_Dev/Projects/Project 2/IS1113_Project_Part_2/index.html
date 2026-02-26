@@ -44,16 +44,17 @@
     <nav>
         <div class="links">
             <strong>Jump to: </strong>&nbsp;&nbsp;&nbsp;
-            <a href="#professional-summary">About</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="#education">Education</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="#work-experience">Work</a>
+
+            <a class="tab-link active-tab" data-tab="professional-summary">About</a>
+            &nbsp;&nbsp;
+            <a class="tab-link" data-tab="education">Education</a>
+            &nbsp;&nbsp;
+            <a class="tab-link" data-tab="work-experience">Work</a>
         </div>
     </nav>
         
     <!-- Professional Summary -->
-    <section id="professional-summary">
+    <section id="professional-summary" class="tab-section">
         <h3>Professional Summary</h3>
         <hr>
         <article>
@@ -67,7 +68,7 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education">
+    <section id="education" class="tab-section">
         <h3>Education</h3>
         <hr>
         <article>
@@ -128,7 +129,7 @@
     </section>
 
 <!-- Work Experience Section -->
-    <section id="work-experience">
+    <section id="work-experience" class="tab-section">
         <h3>Work Experience</h3>
         <hr>
         <article>
@@ -184,23 +185,34 @@
     </section>
 
     <!-- Floating CTA -->
-    <button class="button" id="contact-button"><a href="#contact-form">Contact Me</a></button>
+    <button class="button" id="contact-button" type="button">Contact Me</button>
 
-    <!-- Contact Form -->
-    <div id="contact-form">
-        <h4>Contact Me</h4>
-        <form action="mailto:125701129@umail.ucc.ie" method="post" enctype="text/plain">
-            <label class="contact-form-label" for="name">Name<span class="asterisk">*</span></label>
-            <input class="contact-form-input" type="text" id="name" name="name" required>
+    <!-- Modal Overlay (hidden by default) -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="close-button" type="button" aria-label="Close form">×</button>
 
-            <label class="contact-form-label" for="email">Email<span class="asterisk">*</span></label>
-            <input class="contact-form-input" type="email" id="email" name="email" required>
+            <h4>Contact Me</h4>
+            <form id="contact-form" action="mailto:125701129@umail.ucc.ie" method="post" enctype="text/plain" novalidate>
+                <label class="contact-form-label" for="name">Name<span class="asterisk">*</span></label>
+                <input class="contact-form-input" type="text" id="name" name="name">
+                <p class="error-message" id="name-error"></p>
 
-            <label class="contact-form-label" for="message">Message<span class="asterisk">*</span></label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+                <label class="contact-form-label" for="email">Email<span class="asterisk">*</span></label>
+                <input class="contact-form-input" type="email" id="email" name="email">
+                <p class="error-message" id="email-error"></p>
 
-            <button class="button" id="send-button" type="submit"><span id="button-text">Send</span></button>
-        </form>
+                <label class="contact-form-label" for="title">Message Title<span class="asterisk">*</span></label>
+                <input class="contact-form-input" type="text" id="title" name="title">
+                <p class="error-message" id="title-error"></p>
+
+                <label class="contact-form-label" for="message">Message<span class="asterisk">*</span></label>
+                <textarea id="message" name="message" rows="5"></textarea>
+                <p class="error-message" id="message-error"></p>
+
+                <button class="button" class="send-button" type="submit">Send</button>
+            </form>
+        </div>
     </div>
 
     <script src="script.js"></script>

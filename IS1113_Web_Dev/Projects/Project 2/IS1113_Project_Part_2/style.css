@@ -1,4 +1,4 @@
-/* Base layout */
+/* ===== Base layout ===== */
 body {
     font-family: "Figtree", sans-serif;
     max-width: 640px;
@@ -6,7 +6,16 @@ body {
     padding: 20px;
 }
 
-/* Headings */
+/* Keep form controls on the same font (fixes monospace textarea default) */
+input,
+textarea,
+button,
+select {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* ===== Typography ===== */
 h1,
 h3 {
     font-weight: 600;
@@ -18,7 +27,6 @@ h4 {
     text-align: center;
 }
 
-/* Links */
 a {
     color: #EAAA00;
     text-decoration: none;
@@ -28,12 +36,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Header contact line */
+/* ===== Header ===== */
 #contact-info {
     text-align: center;
 }
 
-/* Navigation */
+/* ===== Navigation ===== */
 nav {
     position: sticky;
     top: 12px;
@@ -56,25 +64,37 @@ nav a:hover {
     color: #EAAA00;
 }
 
-/* Section separators */
+/* Tab sections */
+.tab-section {
+    display: none;
+}
+
+.tab-section.active-section {
+    display: block;
+}
+
+.tab-link {
+    cursor: pointer;
+}
+
+.tab-link.active-tab {
+    color: #EAAA00;
+}
+
+/* ===== Content ===== */
 hr {
     width: 50%;
     margin-top: 12px;
     opacity: 0.25;
 }
 
-/* Content cards */
-article, #contact-form {
+article {
     width: 90%;
     margin: 24px auto;
     padding: 10px 16px;
     background-color: white;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.asterisk {
-    color: #ee0404;
 }
 
 #profile-picture {
@@ -85,42 +105,6 @@ article, #contact-form {
     border-radius: 16px;
 }
 
-/* Buttons */
-.button {
-    right: 20px;
-    bottom: 20px;
-    padding: 16px 24px;
-    font-size: 14px;
-    background-color: #EAAA00;
-    border: none;
-    border-radius: 320px;
-    cursor: pointer;
-}
-
-.button > a, #button-text {
-    display: block;
-    font-weight: 600;
-    line-height: 1;
-    color: black; /* TODO: Doesn't seem to work on the contact button */
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.button:hover {
-    background-color: #000;
-}
-
-.button:hover > a, #button-text {
-    color: white; /* TODO: Doesn't seem to work on the contact button */
-}
-
-#contact-button {
-    position: fixed;
-    z-index: 100;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* Shared entry text */
 .entry-title {
     margin-bottom: 8px;
 }
@@ -130,35 +114,105 @@ article, #contact-form {
     color: #555;
 }
 
-/* Contact form */
-.contact-form-input, #message {
-    appearance: none;
-    width: 90%;
-    border-width: 2px; /* Change to red if input invalid, like no @ sign in an email address */
-    border-radius: 4px;
-    border-color: rgba(0, 0, 0, 0.25);
+/* ===== Buttons ===== */
+.button {
+    right: 20px;
+    bottom: 20px;
     padding: 16px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    background-color: #EAAA00;
+    border: none;
+    border-radius: 320px;
+    cursor: pointer;
 }
 
-/* Contact form */
-.contact-form-input, #message {
+.button:hover {
+    color: white;
+    background-color: #000;
+}
+
+#contact-button {
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Contact form ===== */
+#contact-form {
+    width: 90%;
+    margin: 24px auto;
+    padding: 10px 16px;
+}
+
+.asterisk {
+    color: #ee0404;
+}
+
+.contact-form-label {
+    display: block;
+    margin: 4px 0 4px;
+}
+
+.contact-form-input,
+#message {
     appearance: none;
     width: 90%;
-    border-width: 2px; /* Change to red if input invalid, like no @ sign in an email address */
-    border-radius: 4px;
-    border-color: rgba(0, 0, 0, 0.25);
     padding: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
 }
 
-.contact-form-input:focus, #message:focus {
+.contact-form-input:focus,
+#message:focus {
     outline: none;
     border-color: #EAAA00;
 }
 
-.contact-form-input:invalid, #message:invalid {
+.contact-form-input:invalid,
+#message:invalid,
+.invalid {
     border-color: #ee0404;
 }
 
-.contact-form-label {
-    margin: 12px 0 4px;
+.error-message {
+    color: #c62828;
+    font-size: 0.9rem;
+    margin: 4px 0 12px 0;
+    min-height: 1em;
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
 }
