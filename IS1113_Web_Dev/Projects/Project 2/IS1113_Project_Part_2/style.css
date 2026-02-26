@@ -274,8 +274,9 @@ article {
 
 .modal-content {
     position: relative;
-    width: 90%;
+    width: calc(100% - 24px);
     max-width: 500px;
+    margin: 12px;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
