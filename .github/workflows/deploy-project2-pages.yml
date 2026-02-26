@@ -28,6 +28,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate Project 2 files
+        run: |
+          test -f "IS1113_Web_Dev/Projects/Project 2/IS1113_Project_Part_2/index.html"
+          ls -la "IS1113_Web_Dev/Projects/Project 2/IS1113_Project_Part_2"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
