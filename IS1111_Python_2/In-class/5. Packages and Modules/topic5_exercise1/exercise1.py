@@ -77,7 +77,7 @@ def display_daily_summary():
     # Expected: Orders by category - Hot Drinks: 5, Food: 3
     # Hint: build the string in a loop or use join()
     category_str = ", ".join([f"{category}: {count}" for category, count in category_counts.items()])
-    print(f"Orders by category - {category_str}")
+    print(f"Orders by category: {category_str}")
 
 # TODO 10: Add the if __name__ == "__main__" guard here
 #          and call display_daily_summary() inside it.
