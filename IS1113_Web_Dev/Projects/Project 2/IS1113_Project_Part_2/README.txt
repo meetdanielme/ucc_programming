@@ -9,4 +9,4 @@
 - style.css
 - script.js
 
-[GitHub Pages Preview](TBD)
+[GitHub Pages Preview](https://meetdanielme.github.io/ucc_programming/)
