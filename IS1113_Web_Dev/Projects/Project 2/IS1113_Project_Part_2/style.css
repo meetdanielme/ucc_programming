@@ -11,6 +11,7 @@ body {
     padding: 20px;
 }
 
+/* ===== Devices <480px wide ===== */
 @media (max-width: 480px) {
     body {
         padding: 12px;
@@ -48,14 +49,6 @@ body {
     }
 }
 
-input,
-textarea,
-button,
-select {
-    font-family: inherit;
-    font-size: 1rem;
-}
-
 /* ===== Typography ===== */
 h1,
 h3 {
@@ -75,6 +68,14 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+input,
+textarea,
+button,
+select {
+    font-family: inherit;
+    font-size: 1rem;
 }
 
 /* ===== Header ===== */
@@ -221,7 +222,7 @@ article {
 }
 
 .asterisk {
-    color: #ee0404;
+    color: #ee0404; 
 }
 
 .contact-form-label {
