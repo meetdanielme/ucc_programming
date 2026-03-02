@@ -54,7 +54,7 @@ def display_main_menu():
 # FUNCTION 2
 def get_menu_item(item_id):
     """Returns the menu item dict for a given item ID, or None if not found."""
-    # MODULE: main.py
+    # MODULE: cafe_operations.py 
     return menu.get(item_id)
 
 

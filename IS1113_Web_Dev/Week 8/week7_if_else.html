@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>If / Else Tutorial</title>
+</head>
+<body>
+
+<script>
+  var mark;
+
+  mark = parseInt(prompt("Enter your mark (0-100):"));
+  if (mark < 0 || mark > 100) {
+    document.write("<br>Invalid mark (must be 0 to 100)");
+  } else if (mark >= 80) {
+    document.write("<br>Excellent");
+  } else if (mark >= 65) {
+    document.write("<br>Very Good");
+  } else if (mark >= 50) {
+    document.write("<br>Pass");
+  } else {
+    document.write("<br>Fail");
+  }
+  document.write("Mark entered: " + mark);
+</script>
+
+</body>
+</html>

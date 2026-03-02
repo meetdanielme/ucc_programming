@@ -1,0 +1,45 @@
+<html> 
+<head> 
+  <title>Restaurant Menu (Switch)</title> 
+</head> 
+<body> 
+ 
+<h1>Restaurant Menu</h1> 
+ 
+<script> 
+  var choice; 
+  choice = prompt( 
+  "Restaurant Menu:\n" + 
+  "1) Burger (€8)\n" + 
+  "2) Pizza (€10)\n" + 
+  "3) Salad (€6)\n" + 
+  "4) Coffee (€3)\n\n" + 
+  "Enter 1, 2, 3, or 4:" 
+); 
+
+switch(choice) 
+{ 
+  case "1": 
+    document.write("You chose: Burger<br>Price: €8"); 
+    break; 
+ 
+  case "2": 
+    document.write("You chose: Pizza<br>Price: €10"); 
+    break; 
+ 
+  case "3": 
+    document.write("You chose: Salad<br>Price: €6"); 
+    break; 
+ 
+  case "4": 
+    document.write("You chose: Coffee<br>Price: €3"); 
+    break; 
+ 
+  default: 
+    document.write("Invalid choice. Please refresh and try again."); 
+}
+
+</script> 
+ 
+</body> 
+</html>
