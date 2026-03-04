@@ -99,12 +99,12 @@
 # Write your prediction before discussing with a neighbour.
 #
 # TODO: Write the exact output here, one line per printed value:
-# Line 1: ...
-# Line 2: ...
-# Line 3: ...
+# Line 1: Testing get_book_price...
+# Line 2: 12.99
+# Line 3: Price: €8.50
 #
 # Were you surprised? Why or why not?
-# TODO: ...
+# TODO: No, because the print statements in shop_operations.py are executed during import, which is not intended.
 #
 # PART B - Identify and fix
 # What is wrong with shop_operations.py, and how do you fix it so
@@ -112,10 +112,18 @@
 # directly?
 #
 # What is wrong?
-# TODO: ...
+# TODO: The print statements in shop_operations.py are executed when the module is imported, not when it's run directly.
 #
 # Fixed shop_operations.py:
-# TODO: ...
+# TODO: Add if __name__ == "__main__": guard
+# shop_operations.py:
+# def get_book_price(book_id):
+#     prices = {"B001": 12.99, "B002": 8.50}
+#     return prices.get(book_id, 0.0)
+#
+# if __name__ == "__main__":
+#     print("Testing get_book_price...")
+#     print(get_book_price("B001"))
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -136,7 +144,7 @@
 #               f.write(f"{book_id},{price}\n")
 #
 # What is wrong?
-# TODO: ...
+# TODO: The circular import occurs because data_handler.py imports from shop_operations.py, and shop_operations.py imports from data_handler.py.
 #
 # How do you fix the design so the circular import is not needed?
-# TODO: ...
+# TODO: Refactor the code to eliminate the circular dependency, possibly by creating a third module for shared functionality or moving the necessary functions to one of the existing modules.
