@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Battery Dashboard</title> 
+<style> 
+body{ 
+  font-family: Arial, sans-serif; 
+  padding: 20px; 
+} 
+ 
+.barOuter{ 
+  width: 320px; 
+  height: 28px; 
+  border: 2px solid #333; 
+  border-radius: 6px; 
+  background-color: #f4f4f4; 
+  overflow: hidden; 
+  margin-top: 10px; 
+} 
+ 
+.barInner{ 
+  height: 100%; 
+  width: 0%; 
+  background-color: #4CAF50; 
+} 
+</style>
+
+</head> 
+<body> 
+ 
+<h1>Battery Dashboard</h1> 
+<p id="batteryText">Battery level: ...</p> 
+<p id="batteryStatus">Status: ...</p> 
+ 
+<div class="barOuter"> 
+  <div id="barInner" class="barInner"></div> 
+</div> 
+ 
+<p id="barLabel">...</p> 
+
+<script> 
+function getBatteryStatus(percent) 
+{ 
+  if (percent < 20) { 
+    return "Low"; 
+  } else if (percent < 80) { 
+    return "OK"; 
+  } else { 
+    return "High"; 
+  } 
+} 
+
+function updateDashboard(percent) 
+{ 
+  var status; 
+  status = getBatteryStatus(percent); 
+ 
+  document.getElementById("batteryText").innerHTML = 
+    "Battery level: " + percent + "%"; 
+ 
+  document.getElementById("batteryStatus").innerHTML = 
+    "Status: " + status; 
+ 
+  document.getElementById("barInner").style.width = percent + "%"; 
+  document.getElementById("barLabel").innerHTML = 
+    "Bar: " + percent + "%"; 
+}
+
+if ("getBattery" in navigator) 
+{ 
+  navigator.getBattery().then(function(battery) { 
+ 
+    var percent; 
+    percent = Math.round(battery.level * 100); 
+ 
+    updateDashboard(percent); 
+  }); 
+} 
+else 
+{ 
+  document.getElementById("batteryText").innerHTML = 
+    "Battery API not supported in this browser."; 
+}
+
+</script>
+</body> 
+</html>

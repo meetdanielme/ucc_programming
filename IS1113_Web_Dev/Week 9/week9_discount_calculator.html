@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Discount Calculator</title> 
+</head> 
+<body> 
+ 
+<h1>Discount Calculator</h1> 
+ 
+<script> 
+function finalPrice(price) 
+{ 
+  var discount; 
+  var result; 
+ 
+  if (price >= 100) { 
+    discount = price * 0.10; 
+  } else { 
+    discount = 0; 
+  } 
+ 
+  result = price - discount; 
+ 
+  return result; 
+}
+
+var price; 
+var afterDiscount; 
+ 
+price = parseFloat(prompt("Enter the original price (€):")); 
+ 
+if (isNaN(price)) {
+  document.write("Please enter a valid number.");
+} else {
+  afterDiscount = finalPrice(price); 
+ 
+  document.write("Original price: €" + price.toFixed(2) + "<br>"); 
+  document.write("Final price after discount: €" + afterDiscount.toFixed(2));
+}
+</script>
+
+</body> 
+</html> 
