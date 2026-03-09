@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+	<h1 id="message">Hello</h1>
+		<button onclick="changeText()">
+			Click Me
+		</button>
+
+		<h2>Change background color to:</h2>
+
+		<form>
+			<input type="radio" name="Colors" onclick="document.bgColor='Red'">Red <br>
+			<input type="radio" name="Colors" onclick="document.bgColor='Green'">Green <br>
+			<input type="radio" name="Colors" onclick="document.bgColor='Blue'">Blue
+		</form>
+
+	<script>
+		function changeText() {
+			if (document.getElementById("message").innerHTML == "Goodbye") {
+				document.getElementById("message").innerHTML = "Hello";
+			} else {
+				document.getElementById("message").innerHTML = "Goodbye";
+			}
+		}
+	</script>
+</body>
+
+</html>
