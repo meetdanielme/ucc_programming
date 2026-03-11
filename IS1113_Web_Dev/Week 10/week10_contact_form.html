@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="utf-8"> 
+  <title>Contact Form Validation</title> 
+ 
+  <script> 
+    function validateForm() 
+    { 
+      var x; 
+      var name; 
+      var email; 
+      var message; 
+ 
+      x = document.myForm; 
+      name = x.myName.value; 
+      email = x.myEmail.value; 
+      message = x.myMessage.value; 
+ 
+      if (name == "") 
+      { 
+        alert("Please enter your name."); 
+        x.myName.focus(); 
+        return false; 
+      } 
+ 
+      if (email == "") 
+      { 
+        alert("Please enter your email."); 
+        x.myEmail.focus(); 
+        return false; 
+      } 
+ 
+      if (email.indexOf("@") == -1) 
+      { 
+        alert("Please enter a valid email address."); 
+        x.myEmail.focus(); 
+        return false; 
+      } 
+ 
+      if (message == "") 
+      { 
+        alert("Please enter your message."); 
+        x.myMessage.focus(); 
+        return false; 
+      } 
+ 
+      return true; 
+    } 
+  </script> 
+</head> 
+<body> 
+ 
+  <h1>Contact Form</h1> 
+ 
+  <form name="myForm" action="submitform.html" onsubmit="return 
+validateForm()"> 
+ 
+    <p> 
+      Name:<br> 
+      <input type="text" name="myName"> 
+    </p> 
+ 
+    <p> 
+      Email:<br> 
+      <input type="text" name="myEmail"> 
+    </p> 
+ 
+    <p> 
+      Message:<br> 
+      <textarea name="myMessage" rows="5" cols="30"></textarea> 
+    </p> 
+ 
+    <p> 
+      <input type="submit" value="Send Message"> 
+    </p> 
+ 
+  </form> 
+ 
+</body> 
+</html> 
