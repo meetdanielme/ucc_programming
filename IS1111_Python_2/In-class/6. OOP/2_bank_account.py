@@ -35,7 +35,7 @@
 # ------------------------------------------------------------------
 
 class BankAccount:
-    def __init__(self):
+    def __init__(self): # constructor with no parameters other than self
         self.owner = ""
         self.balance = 0.0
 
